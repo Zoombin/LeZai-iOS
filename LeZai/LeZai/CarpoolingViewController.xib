@@ -73,7 +73,7 @@
                 </scrollView>
                 <view hidden="YES" contentMode="scaleToFill" id="xvI-VC-RG0">
                     <rect key="frame" x="0.0" y="311" width="320" height="206"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="gy8-YM-7gU">
                             <rect key="frame" x="0.0" y="44" width="320" height="162"/>
