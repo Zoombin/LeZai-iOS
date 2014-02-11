@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1894C16D18AA1DD400A2380A /* LZService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C16C18AA1DD400A2380A /* LZService.m */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
 		18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91618A5E0E800BFA2EE /* UIKit.framework */; };
@@ -25,6 +26,7 @@
 		18D4C94B18A5FB3F00BFA2EE /* CarpoolingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D4C94918A5FB3F00BFA2EE /* CarpoolingViewController.xib */; };
 		18D4C94F18A60F5100BFA2EE /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4C94D18A60F5100BFA2EE /* ResultViewController.m */; };
 		18D4C95018A60F5100BFA2EE /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D4C94E18A60F5100BFA2EE /* ResultViewController.xib */; };
+		435B9A2497564E5FB736A114 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADED582031B406EA645D50E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1894C16B18AA1DD400A2380A /* LZService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZService.h; sourceTree = "<group>"; };
+		1894C16C18AA1DD400A2380A /* LZService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZService.m; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4C91218A5E0E800BFA2EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,6 +69,8 @@
 		18D4C94E18A60F5100BFA2EE /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		18D4C95118A6232500BFA2EE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		18D4C95218A6232500BFA2EE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		312520A3FF274115B97085E4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5ADED582031B406EA645D50E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 				18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */,
 				18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */,
 				18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */,
+				435B9A2497564E5FB736A114 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1894C16A18AA1D9400A2380A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1894C16B18AA1DD400A2380A /* LZService.h */,
+				1894C16C18AA1DD400A2380A /* LZService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		18D4C90618A5E0E700BFA2EE = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +114,7 @@
 				18D4C93118A5E0E800BFA2EE /* LeZaiTests */,
 				18D4C91118A5E0E800BFA2EE /* Frameworks */,
 				18D4C91018A5E0E800BFA2EE /* Products */,
+				312520A3FF274115B97085E4 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +134,7 @@
 				18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */,
 				18D4C91618A5E0E800BFA2EE /* UIKit.framework */,
 				18D4C92B18A5E0E800BFA2EE /* XCTest.framework */,
+				5ADED582031B406EA645D50E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,6 +142,7 @@
 		18D4C91818A5E0E800BFA2EE /* LeZai */ = {
 			isa = PBXGroup;
 			children = (
+				1894C16A18AA1D9400A2380A /* Service */,
 				18D4C94118A5F3BB00BFA2EE /* UI */,
 				18D4C92118A5E0E800BFA2EE /* AppDelegate.h */,
 				18D4C92218A5E0E800BFA2EE /* AppDelegate.m */,
@@ -185,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D4C93B18A5E0E800BFA2EE /* Build configuration list for PBXNativeTarget "LeZai" */;
 			buildPhases = (
+				04224F6052184D009B2EEA97 /* Check Pods Manifest.lock */,
 				18D4C90B18A5E0E800BFA2EE /* Sources */,
 				18D4C90C18A5E0E800BFA2EE /* Frameworks */,
 				18D4C90D18A5E0E800BFA2EE /* Resources */,
+				0BE89BC2E4B74027AEBAE7AC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,12 +293,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04224F6052184D009B2EEA97 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0BE89BC2E4B74027AEBAE7AC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18D4C90B18A5E0E800BFA2EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				18D4C92318A5E0E800BFA2EE /* AppDelegate.m in Sources */,
+				1894C16D18AA1DD400A2380A /* LZService.m in Sources */,
 				18D4C94518A5FB2400BFA2EE /* OrderViewController.m in Sources */,
 				18D4C94A18A5FB3F00BFA2EE /* CarpoolingViewController.m in Sources */,
 				18D4C94F18A60F5100BFA2EE /* ResultViewController.m in Sources */,
@@ -399,6 +454,7 @@
 		};
 		18D4C93C18A5E0E800BFA2EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 312520A3FF274115B97085E4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -413,6 +469,7 @@
 		};
 		18D4C93D18A5E0E800BFA2EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 312520A3FF274115B97085E4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -486,6 +543,7 @@
 				18D4C93D18A5E0E800BFA2EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18D4C93E18A5E0E800BFA2EE /* Build configuration list for PBXNativeTarget "LeZaiTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +552,7 @@
 				18D4C94018A5E0E800BFA2EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
