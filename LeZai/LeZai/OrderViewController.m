@@ -20,10 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"订单查询";
-//        {"Token":"acf7ef943fdeb3cbfed8dd0d8f584731","ClientKey":"12345","UserName":null,"Password":null,"ClientMode":"Android","OrderNo":null,"BeginCity":"北京市","EndCity":"苏州市","SendDate":"2014-2-11","OrderBy":"LM_PRICE ASC","StartRows":"1","RecordRows":"5"}
-//        UIDevice *device = [UIDevice currentDevice];//创建设备对象
-//        NSLog(@"%@",[[device identifierForVendor] UUIDString]); // 输出设备id
+        self.title = @"订单状态跟踪";
     }
     return self;
 }
@@ -65,8 +62,6 @@
             [_resultTextView setText:result];
         }
     }];
-    
-//    订单编号 订单状态 订单评价 委托单位 收货单位 提货日期 送货日期 件数 毛重 体积 发车时间 运输线路 订单金额 结算方式 货物名称 货物种类 货物重量 货物体积 订单时间
 }
 
 - (void)didReceiveMemoryWarning

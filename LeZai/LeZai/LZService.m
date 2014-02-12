@@ -31,32 +31,63 @@
     return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingMutableLeaves error:nil];
 }
 
+- (NSData *)byteArrayToData:(NSArray *)arr
+{
+    unsigned c = arr.count;
+    uint8_t *bytes = (uint8_t*)malloc(sizeof(*bytes) * c);
+    unsigned i;
+    for (i = 0; i < c; i++) {
+        NSString *str = [arr objectAtIndex:i];
+        int byte = [str intValue];
+        bytes[i] = (uint8_t)byte;
+    }
+    NSData *fileData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
+    return fileData;
+}
+
 - (void)searchOrderByOrderNO:(NSString *)orederNo
                    withBlock:(void(^)(NSString *result))block
 {
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Android\",\"UserName\":null,\"Password\":null}",orederNo];
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}",orederNo];
     NSDictionary *params = @{@"ServiceName": @"OrderState", @"ServicePara": paramsString};
 
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id theObject = [self jsonValue:responseObject];
         NSArray *byteArray = theObject[@"ReturnData"];
         if (byteArray && [byteArray isKindOfClass:[NSArray class]]) {
-            unsigned c = byteArray.count;
-            uint8_t *bytes = (uint8_t*)malloc(sizeof(*bytes) * c);
-            unsigned i;
-            for (i = 0; i < c; i++) {
-                NSString *str = [byteArray objectAtIndex:i];
-                int byte = [str intValue];
-                bytes[i] = (uint8_t)byte;
-            }
-            NSData *fileData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
-            NSString *str = [[NSString alloc]initWithData:fileData encoding:NSUTF8StringEncoding];
+            NSString *str = [[NSString alloc]initWithData:[self byteArrayToData:byteArray] encoding:NSUTF8StringEncoding];
             if (block) {
                 block(str);
             }
         } else {
             if (block) {
                 block(@"未找到该订单");
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil);
+        }
+    }];
+}
+
+- (void)pcSearchByStartCity:(NSString *)sCity endCity:(NSString *)eCity sendDate:(NSString *)sendDate page:(int)page count:(int)count withBlock:(void (^)(NSArray *))block
+{
+    UIDevice *device = [UIDevice currentDevice];//创建设备对象
+    NSString *paramsString = [NSString stringWithFormat:@"{\"Token\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserName\":null,\"Password\":null,\"ClientMode\":\"Ios\",\"OrderNo\":null,\"BeginCity\":\"%@\",\"EndCity\":\"%@\",\"SendDate\":\"%@\",\"OrderBy\":\"LM_PRICE ASC\",\"StartRows\":\"%d\",\"RecordRows\":\"%d\"}",[[device identifierForVendor] UUIDString],sCity,eCity,sendDate,page,count];
+    NSDictionary *params = @{@"ServiceName": @"PcPriceSearch", @"ServicePara": paramsString};
+    
+    [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id theObject = [self jsonValue:responseObject];
+        NSArray *byteArray = theObject[@"ReturnData"];
+        if (byteArray && [byteArray isKindOfClass:[NSArray class]]) {
+            NSData *resultData = [self byteArrayToData:byteArray];
+            if (block) {
+                block([self jsonValue:resultData]);
+            }
+        } else {
+            if (block) {
+                block(nil);
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

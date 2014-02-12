@@ -8,6 +8,7 @@
 
 #import "CarpoolingViewController.h"
 #import "ResultViewController.h"
+#import "LZService.h"
 
 @implementation CarpoolingViewController
 
@@ -37,6 +38,7 @@
 
 - (IBAction)showDatePicker:(id)sender
 {
+    [self hideKeyBoard];
     [_datePickerView setHidden:NO];
 }
 
@@ -51,8 +53,10 @@
 - (IBAction)search:(id)sender
 {
     [self hideKeyBoard];
- 
     ResultViewController *resultViewController = [[ResultViewController alloc] init];
+    resultViewController.beginCity = _startLocationTextField.text;
+    resultViewController.endCity = _endLocationTextField.text;
+    resultViewController.sendDate = _dateSelectButton.titleLabel.text;
     [resultViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:resultViewController animated:YES];
 }

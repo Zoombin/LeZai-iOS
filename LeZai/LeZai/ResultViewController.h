@@ -10,4 +10,9 @@
 
 @interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *resultTableView;
+@property (nonatomic, strong) NSString *beginCity;
+@property (nonatomic, strong) NSString *endCity;
+@property (nonatomic, strong) NSString *sendDate;
+@property (nonatomic, strong) IBOutlet UIView *footView;
+- (IBAction)loadMore:(id)sender;
 @end

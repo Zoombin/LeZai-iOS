@@ -7,12 +7,18 @@
 //
 
 #import "ResultViewController.h"
+#import "LZService.h"
+#import "PcSearchCell.h"
 
 @interface ResultViewController ()
 
 @end
 
-@implementation ResultViewController
+@implementation ResultViewController {
+    NSMutableArray *resultArray;
+    int page;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,6 +26,8 @@
     if (self) {
         // Custom initialization
         self.title = @"搜索结果";
+        resultArray = [[NSMutableArray alloc] init];
+        page = 1;
     }
     return self;
 }
@@ -27,27 +35,60 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:1 count:5 withBlock:^(NSArray *result) {
+        if (result &&[result count] > 0) {
+            [resultArray removeAllObjects];
+            [resultArray addObjectsFromArray:result];
+            [_resultTableView reloadData];
+            if ([result count] == 5) {
+                page++;
+                [_resultTableView setTableFooterView:_footView];
+            } else {
+                [_resultTableView setTableFooterView:nil];
+            }
+        } else {
+            NSLog(@"无相关结果");
+        }
+    }];
+}
+
+- (IBAction)loadMore:(id)sender
+{
+    [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:page count:5 withBlock:^(NSArray *result) {
+        if (result &&[result count] > 0) {
+            [resultArray addObjectsFromArray:result];
+            [_resultTableView reloadData];
+            if ([result count] == 5) {
+                page++;
+                [_resultTableView setTableFooterView:_footView];
+            } else {
+                [_resultTableView setTableFooterView:nil];
+            }
+        } else {
+            NSLog(@"无相关结果");
+        }
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 170;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 50;
+    return [resultArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PcSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"PcSearchCell" owner:self options: nil];
+        cell = [nib objectAtIndex:0];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    [cell updateInfo:resultArray[indexPath.row]];
     return cell;
 }
 

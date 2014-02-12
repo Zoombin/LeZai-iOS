@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1894C16D18AA1DD400A2380A /* LZService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C16C18AA1DD400A2380A /* LZService.m */; };
+		1894C17018AB105200A2380A /* PcSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C16F18AB105200A2380A /* PcSearchCell.m */; };
+		1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1894C17118AB108B00A2380A /* PcSearchCell.xib */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
 		18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91618A5E0E800BFA2EE /* UIKit.framework */; };
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		1894C16B18AA1DD400A2380A /* LZService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZService.h; sourceTree = "<group>"; };
 		1894C16C18AA1DD400A2380A /* LZService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZService.m; sourceTree = "<group>"; };
+		1894C16E18AB105200A2380A /* PcSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcSearchCell.h; sourceTree = "<group>"; };
+		1894C16F18AB105200A2380A /* PcSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcSearchCell.m; sourceTree = "<group>"; };
+		1894C17118AB108B00A2380A /* PcSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PcSearchCell.xib; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4C91218A5E0E800BFA2EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -193,6 +198,9 @@
 				18D4C94C18A60F5100BFA2EE /* ResultViewController.h */,
 				18D4C94D18A60F5100BFA2EE /* ResultViewController.m */,
 				18D4C94E18A60F5100BFA2EE /* ResultViewController.xib */,
+				1894C16E18AB105200A2380A /* PcSearchCell.h */,
+				1894C16F18AB105200A2380A /* PcSearchCell.m */,
+				1894C17118AB108B00A2380A /* PcSearchCell.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 			files = (
 				18D4C91D18A5E0E800BFA2EE /* InfoPlist.strings in Resources */,
 				18D4C94618A5FB2400BFA2EE /* OrderViewController.xib in Resources */,
+				1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */,
 				18D4C94B18A5FB3F00BFA2EE /* CarpoolingViewController.xib in Resources */,
 				18D4C95018A60F5100BFA2EE /* ResultViewController.xib in Resources */,
 				18D4C92518A5E0E800BFA2EE /* Images.xcassets in Resources */,
@@ -331,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,
 				18D4C92318A5E0E800BFA2EE /* AppDelegate.m in Sources */,
 				1894C16D18AA1DD400A2380A /* LZService.m in Sources */,
 				18D4C94518A5FB2400BFA2EE /* OrderViewController.m in Sources */,
