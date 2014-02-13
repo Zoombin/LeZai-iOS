@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "OrderViewController.h"
 #import "CarpoolingViewController.h"
+#import "AppDelegate+Appearance.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [self customizeAppearance];
     [self addTabBar];
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];

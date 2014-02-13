@@ -10,6 +10,22 @@
 		1894C16D18AA1DD400A2380A /* LZService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C16C18AA1DD400A2380A /* LZService.m */; };
 		1894C17018AB105200A2380A /* PcSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C16F18AB105200A2380A /* PcSearchCell.m */; };
 		1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1894C17118AB108B00A2380A /* PcSearchCell.xib */; };
+		1894C19118AB502B00A2380A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1894C17518AB502B00A2380A /* .gitignore */; };
+		1894C19218AB502B00A2380A /* CLLocation+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C17718AB502B00A2380A /* CLLocation+NSDictionary.m */; };
+		1894C19318AB502B00A2380A /* CLLocation+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C17918AB502B00A2380A /* CLLocation+NSString.m */; };
+		1894C19418AB502B00A2380A /* MBProgressHUD+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C17B18AB502B00A2380A /* MBProgressHUD+Appearance.m */; };
+		1894C19518AB502B00A2380A /* NSNumber+PrintableMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C17D18AB502B00A2380A /* NSNumber+PrintableMeasurement.m */; };
+		1894C19618AB502B00A2380A /* NSString+BundleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C17F18AB502B00A2380A /* NSString+BundleExtensions.m */; };
+		1894C19718AB502B00A2380A /* NSString+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18118AB502B00A2380A /* NSString+ZBUtilites.m */; };
+		1894C19818AB502B00A2380A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1894C18218AB502B00A2380A /* README.md */; };
+		1894C19918AB502B00A2380A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18418AB502B00A2380A /* UIColor+Hex.m */; };
+		1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18618AB502B00A2380A /* UIColor+Random.m */; };
+		1894C19B18AB502B00A2380A /* UIDevice+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18818AB502B00A2380A /* UIDevice+ZBUtilites.m */; };
+		1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18A18AB502B00A2380A /* UIViewController+HUD.m */; };
+		1894C19D18AB502B00A2380A /* UIViewController+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18C18AB502B00A2380A /* UIViewController+ZBUtilites.m */; };
+		1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18E18AB502B00A2380A /* ZBTextValidate.m */; };
+		1894C19F18AB502B00A2380A /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C19018AB502B00A2380A /* ZBViewController.m */; };
+		1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
 		18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91618A5E0E800BFA2EE /* UIKit.framework */; };
@@ -47,6 +63,36 @@
 		1894C16E18AB105200A2380A /* PcSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcSearchCell.h; sourceTree = "<group>"; };
 		1894C16F18AB105200A2380A /* PcSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcSearchCell.m; sourceTree = "<group>"; };
 		1894C17118AB108B00A2380A /* PcSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PcSearchCell.xib; sourceTree = "<group>"; };
+		1894C17518AB502B00A2380A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1894C17618AB502B00A2380A /* CLLocation+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSDictionary.h"; sourceTree = "<group>"; };
+		1894C17718AB502B00A2380A /* CLLocation+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSDictionary.m"; sourceTree = "<group>"; };
+		1894C17818AB502B00A2380A /* CLLocation+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSString.h"; sourceTree = "<group>"; };
+		1894C17918AB502B00A2380A /* CLLocation+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSString.m"; sourceTree = "<group>"; };
+		1894C17A18AB502B00A2380A /* MBProgressHUD+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Appearance.h"; sourceTree = "<group>"; };
+		1894C17B18AB502B00A2380A /* MBProgressHUD+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Appearance.m"; sourceTree = "<group>"; };
+		1894C17C18AB502B00A2380A /* NSNumber+PrintableMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PrintableMeasurement.h"; sourceTree = "<group>"; };
+		1894C17D18AB502B00A2380A /* NSNumber+PrintableMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PrintableMeasurement.m"; sourceTree = "<group>"; };
+		1894C17E18AB502B00A2380A /* NSString+BundleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundleExtensions.h"; sourceTree = "<group>"; };
+		1894C17F18AB502B00A2380A /* NSString+BundleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundleExtensions.m"; sourceTree = "<group>"; };
+		1894C18018AB502B00A2380A /* NSString+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUtilites.h"; sourceTree = "<group>"; };
+		1894C18118AB502B00A2380A /* NSString+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUtilites.m"; sourceTree = "<group>"; };
+		1894C18218AB502B00A2380A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		1894C18318AB502B00A2380A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		1894C18418AB502B00A2380A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		1894C18518AB502B00A2380A /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		1894C18618AB502B00A2380A /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		1894C18718AB502B00A2380A /* UIDevice+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ZBUtilites.h"; sourceTree = "<group>"; };
+		1894C18818AB502B00A2380A /* UIDevice+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ZBUtilites.m"; sourceTree = "<group>"; };
+		1894C18918AB502B00A2380A /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		1894C18A18AB502B00A2380A /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		1894C18B18AB502B00A2380A /* UIViewController+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZBUtilites.h"; sourceTree = "<group>"; };
+		1894C18C18AB502B00A2380A /* UIViewController+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZBUtilites.m"; sourceTree = "<group>"; };
+		1894C18D18AB502B00A2380A /* ZBTextValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextValidate.h; sourceTree = "<group>"; };
+		1894C18E18AB502B00A2380A /* ZBTextValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextValidate.m; sourceTree = "<group>"; };
+		1894C18F18AB502B00A2380A /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
+		1894C19018AB502B00A2380A /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
+		1894C1A018AB522800A2380A /* AppDelegate+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Appearance.h"; sourceTree = "<group>"; };
+		1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Appearance.m"; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4C91218A5E0E800BFA2EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,6 +158,49 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		1894C17318AB501F00A2380A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1894C17418AB502B00A2380A /* ZBUtilities */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		1894C17418AB502B00A2380A /* ZBUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				1894C17518AB502B00A2380A /* .gitignore */,
+				1894C17618AB502B00A2380A /* CLLocation+NSDictionary.h */,
+				1894C17718AB502B00A2380A /* CLLocation+NSDictionary.m */,
+				1894C17818AB502B00A2380A /* CLLocation+NSString.h */,
+				1894C17918AB502B00A2380A /* CLLocation+NSString.m */,
+				1894C17A18AB502B00A2380A /* MBProgressHUD+Appearance.h */,
+				1894C17B18AB502B00A2380A /* MBProgressHUD+Appearance.m */,
+				1894C17C18AB502B00A2380A /* NSNumber+PrintableMeasurement.h */,
+				1894C17D18AB502B00A2380A /* NSNumber+PrintableMeasurement.m */,
+				1894C17E18AB502B00A2380A /* NSString+BundleExtensions.h */,
+				1894C17F18AB502B00A2380A /* NSString+BundleExtensions.m */,
+				1894C18018AB502B00A2380A /* NSString+ZBUtilites.h */,
+				1894C18118AB502B00A2380A /* NSString+ZBUtilites.m */,
+				1894C18218AB502B00A2380A /* README.md */,
+				1894C18318AB502B00A2380A /* UIColor+Hex.h */,
+				1894C18418AB502B00A2380A /* UIColor+Hex.m */,
+				1894C18518AB502B00A2380A /* UIColor+Random.h */,
+				1894C18618AB502B00A2380A /* UIColor+Random.m */,
+				1894C18718AB502B00A2380A /* UIDevice+ZBUtilites.h */,
+				1894C18818AB502B00A2380A /* UIDevice+ZBUtilites.m */,
+				1894C18918AB502B00A2380A /* UIViewController+HUD.h */,
+				1894C18A18AB502B00A2380A /* UIViewController+HUD.m */,
+				1894C18B18AB502B00A2380A /* UIViewController+ZBUtilites.h */,
+				1894C18C18AB502B00A2380A /* UIViewController+ZBUtilites.m */,
+				1894C18D18AB502B00A2380A /* ZBTextValidate.h */,
+				1894C18E18AB502B00A2380A /* ZBTextValidate.m */,
+				1894C18F18AB502B00A2380A /* ZBViewController.h */,
+				1894C19018AB502B00A2380A /* ZBViewController.m */,
+			);
+			path = ZBUtilities;
+			sourceTree = "<group>";
+		};
 		18D4C90618A5E0E700BFA2EE = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +236,13 @@
 		18D4C91818A5E0E800BFA2EE /* LeZai */ = {
 			isa = PBXGroup;
 			children = (
+				1894C17318AB501F00A2380A /* Library */,
 				1894C16A18AA1D9400A2380A /* Service */,
 				18D4C94118A5F3BB00BFA2EE /* UI */,
 				18D4C92118A5E0E800BFA2EE /* AppDelegate.h */,
 				18D4C92218A5E0E800BFA2EE /* AppDelegate.m */,
+				1894C1A018AB522800A2380A /* AppDelegate+Appearance.h */,
+				1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */,
 				18D4C92418A5E0E800BFA2EE /* Images.xcassets */,
 				18D4C91918A5E0E800BFA2EE /* Supporting Files */,
 			);
@@ -284,10 +376,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D4C91D18A5E0E800BFA2EE /* InfoPlist.strings in Resources */,
+				1894C19118AB502B00A2380A /* .gitignore in Resources */,
 				18D4C94618A5FB2400BFA2EE /* OrderViewController.xib in Resources */,
 				1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */,
 				18D4C94B18A5FB3F00BFA2EE /* CarpoolingViewController.xib in Resources */,
 				18D4C95018A60F5100BFA2EE /* ResultViewController.xib in Resources */,
+				1894C19818AB502B00A2380A /* README.md in Resources */,
 				18D4C92518A5E0E800BFA2EE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,13 +434,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */,
+				1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */,
+				1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */,
 				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,
 				18D4C92318A5E0E800BFA2EE /* AppDelegate.m in Sources */,
+				1894C19F18AB502B00A2380A /* ZBViewController.m in Sources */,
 				1894C16D18AA1DD400A2380A /* LZService.m in Sources */,
 				18D4C94518A5FB2400BFA2EE /* OrderViewController.m in Sources */,
 				18D4C94A18A5FB3F00BFA2EE /* CarpoolingViewController.m in Sources */,
+				1894C19518AB502B00A2380A /* NSNumber+PrintableMeasurement.m in Sources */,
 				18D4C94F18A60F5100BFA2EE /* ResultViewController.m in Sources */,
+				1894C19B18AB502B00A2380A /* UIDevice+ZBUtilites.m in Sources */,
+				1894C19718AB502B00A2380A /* NSString+ZBUtilites.m in Sources */,
+				1894C19D18AB502B00A2380A /* UIViewController+ZBUtilites.m in Sources */,
+				1894C19218AB502B00A2380A /* CLLocation+NSDictionary.m in Sources */,
+				1894C19418AB502B00A2380A /* MBProgressHUD+Appearance.m in Sources */,
+				1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */,
 				18D4C91F18A5E0E800BFA2EE /* main.m in Sources */,
+				1894C19918AB502B00A2380A /* UIColor+Hex.m in Sources */,
+				1894C19318AB502B00A2380A /* CLLocation+NSString.m in Sources */,
+				1894C19618AB502B00A2380A /* NSString+BundleExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
