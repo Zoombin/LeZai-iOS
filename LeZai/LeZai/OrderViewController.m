@@ -24,6 +24,7 @@
     if (self) {
         // Custom initialization
         self.title = @"订单状态跟踪";
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"order_search_hl"] withFinishedUnselectedImage:[UIImage imageNamed:@"order_search"]];
     }
     return self;
 }

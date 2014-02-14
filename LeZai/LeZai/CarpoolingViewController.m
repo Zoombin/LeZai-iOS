@@ -25,6 +25,7 @@
     if (self) {
         // Custom initialization
         self.title = @"拼车查询";
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"pc_search_hl"] withFinishedUnselectedImage:[UIImage imageNamed:@"pc_search"]];
     }
     return self;
 }
@@ -32,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
     [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
     [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
@@ -42,6 +44,13 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStyleBordered target:self action:@selector(search)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    NSInteger offset = 156;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        offset = 206;
+    }
+    [_datePickerView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) - offset, 320, 206)];
+    [self.view addSubview:_datePickerView];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
