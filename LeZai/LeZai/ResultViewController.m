@@ -9,6 +9,7 @@
 #import "ResultViewController.h"
 #import "LZService.h"
 #import "PcSearchCell.h"
+#import "UIViewController+HUD.h"
 
 @interface ResultViewController ()
 
@@ -35,8 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self displayHUD:@"加载中..."];
     [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:1 count:5 withBlock:^(NSArray *result) {
         if (result &&[result count] > 0) {
+            [self hideHUD:YES];
             [resultArray removeAllObjects];
             [resultArray addObjectsFromArray:result];
             [_resultTableView reloadData];
@@ -47,6 +50,7 @@
                 [_resultTableView setTableFooterView:nil];
             }
         } else {
+            [self displayHUDTitle:nil message:@"无相关结果"];
             NSLog(@"无相关结果");
         }
     }];
@@ -54,8 +58,10 @@
 
 - (IBAction)loadMore:(id)sender
 {
+    [self displayHUD:@"加载中..."];
     [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:page count:5 withBlock:^(NSArray *result) {
         if (result &&[result count] > 0) {
+            [self hideHUD:YES];
             [resultArray addObjectsFromArray:result];
             [_resultTableView reloadData];
             if ([result count] == 5) {
@@ -65,6 +71,7 @@
                 [_resultTableView setTableFooterView:nil];
             }
         } else {
+            [self displayHUDTitle:nil message:@"无相关结果"];
             NSLog(@"无相关结果");
         }
     }];

@@ -8,6 +8,7 @@
 
 #import "OrderViewController.h"
 #import "LZService.h"
+#import "UIViewController+HUD.h"
 
 @interface OrderViewController ()
 
@@ -55,11 +56,20 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"搜索订单号为: %@", _searchBar.text);
     //1310221000001
+    [self searchOrder:nil];
+}
+
+- (IBAction)searchOrder:(id)sender
+{
+    [self hidenKeyBoard];
+    [self displayHUD:@"加载中..."];
     [[LZService shared] searchOrderByOrderNO:_searchBar.text withBlock:^(NSString *result) {
         if (result) {
             [_resultTextView setText:result];
+            [self hideHUD:YES];
+        } else {
+            [self displayHUDTitle:nil message:@"未获取到相关信息" duration:1.0];
         }
     }];
 }

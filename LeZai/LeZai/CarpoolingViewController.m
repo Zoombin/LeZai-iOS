@@ -9,6 +9,7 @@
 #import "CarpoolingViewController.h"
 #import "ResultViewController.h"
 #import "LZService.h"
+#import "UIViewController+HUD.h"
 
 @implementation CarpoolingViewController
 
@@ -53,6 +54,18 @@
 - (IBAction)search:(id)sender
 {
     [self hideKeyBoard];
+    if ([_startLocationTextField.text isEqualToString:@""]) {
+        [self displayHUDTitle:nil message:@"请输入始发地!"];
+        return;
+    }
+    if ([_endLocationTextField.text isEqualToString:@""]) {
+        [self displayHUDTitle:nil message:@"请输入目的地!"];
+        return;
+    }
+    if ([_dateSelectButton.titleLabel.text isEqualToString:@"选择日期"]) {
+        [self displayHUDTitle:nil message:@"请选择日期!"];
+        return;
+    }
     ResultViewController *resultViewController = [[ResultViewController alloc] init];
     resultViewController.beginCity = _startLocationTextField.text;
     resultViewController.endCity = _endLocationTextField.text;

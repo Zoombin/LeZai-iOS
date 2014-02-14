@@ -13,4 +13,5 @@
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UITextView *resultTextView;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+- (IBAction)searchOrder:(id)sender;
 @end
