@@ -40,7 +40,6 @@
     [_resultTextView.layer setCornerRadius:7];
     [_resultTextView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [_resultTextView.layer setBorderWidth:.5];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)hidenKeyBoard

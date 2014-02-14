@@ -80,9 +80,9 @@
     [_dateSelectButton setTitle:[dateFormatter stringFromDate:_datePicker.date] forState:UIControlStateNormal];
 }
 
-- (void)datePickerValueChanged:(id)sender
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+    [self hidenDatePicker:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
