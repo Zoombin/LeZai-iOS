@@ -11,7 +11,8 @@
 @interface OrderViewController : UIViewController <UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, weak) IBOutlet UITextView *resultTextView;
+@property (nonatomic, strong) IBOutlet UITextView *resultTextView;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIButton *searchButton;
 - (IBAction)searchOrder:(id)sender;
 @end

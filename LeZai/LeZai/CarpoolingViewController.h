@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarpoolingViewController : UIViewController
+@interface CarpoolingViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIView *datePickerView;
@@ -20,5 +20,5 @@
 
 - (IBAction)showDatePicker:(id)sender;
 - (IBAction)hidenDatePicker:(id)sender;
-- (IBAction)search:(id)sender;
+- (void)search;
 @end

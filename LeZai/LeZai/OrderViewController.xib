@@ -10,6 +10,7 @@
                 <outlet property="resultTextView" destination="eGK-Ih-Mfr" id="zjB-mC-xQm"/>
                 <outlet property="scrollView" destination="tRZ-gl-xYK" id="gGI-NR-P6p"/>
                 <outlet property="searchBar" destination="8ek-RX-wtO" id="eb8-rZ-vJ8"/>
+                <outlet property="searchButton" destination="OnT-BF-rOj" id="k4X-jC-9pg"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -23,25 +24,27 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <searchBar contentMode="redraw" placeholder="请输入订单号" id="8ek-RX-wtO">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="244" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="Pab-ZZ-Zkx"/>
                             </connections>
                         </searchBar>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="eGK-Ih-Mfr">
-                            <rect key="frame" x="0.0" y="54" width="320" height="128"/>
+                            <rect key="frame" x="7" y="54" width="307" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OnT-BF-rOj">
-                            <rect key="frame" x="101" y="190" width="118" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OnT-BF-rOj">
+                            <rect key="frame" x="253" y="8" width="61" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0039215686274509803" green="0.61176470588235299" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="搜索">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>

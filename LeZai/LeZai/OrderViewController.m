@@ -9,6 +9,8 @@
 #import "OrderViewController.h"
 #import "LZService.h"
 #import "UIViewController+HUD.h"
+#import <QuartzCore/QuartzCore.h>
+#import "NSString+ZBUtilites.h"
 
 @interface OrderViewController ()
 
@@ -31,6 +33,12 @@
     [super viewDidLoad];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyBoard)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    [_searchButton.layer setCornerRadius:7];
+    
+    [_resultTextView.layer setCornerRadius:7];
+    [_resultTextView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [_resultTextView.layer setBorderWidth:.5];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -63,6 +71,10 @@
 - (IBAction)searchOrder:(id)sender
 {
     [self hidenKeyBoard];
+    if ([_searchBar.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入订单号!"];
+        return;
+    }
     [self displayHUD:@"加载中..."];
     [[LZService shared] searchOrderByOrderNO:_searchBar.text withBlock:^(NSString *result) {
         if (result) {

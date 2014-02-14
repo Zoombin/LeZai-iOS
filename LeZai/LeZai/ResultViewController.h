@@ -14,5 +14,5 @@
 @property (nonatomic, strong) NSString *endCity;
 @property (nonatomic, strong) NSString *sendDate;
 @property (nonatomic, strong) IBOutlet UIView *footView;
-- (IBAction)loadMore:(id)sender;
+- (IBAction)search:(id)sender;
 @end

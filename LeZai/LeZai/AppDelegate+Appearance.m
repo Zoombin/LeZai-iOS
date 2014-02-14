@@ -16,7 +16,7 @@
 	id appearance;
 #pragma mark - UINavigationBar Appearance
 	appearance = [UINavigationBar appearance];
-	UIColor *color = [UIColor colorWithRed:0.0/255.0 green:61.0/255.0 blue:91.0/255.0 alpha:1.0];
+	UIColor *color = [UIColor colorWithRed:1.0/255.0 green:156.0/255.0 blue:223.0/255.0 alpha:1.0];
 	if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
 		[appearance setBarTintColor:color];
 	} else {

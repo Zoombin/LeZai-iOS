@@ -11,6 +11,8 @@
 #import "PcSearchCell.h"
 #import "UIViewController+HUD.h"
 
+#define RESULT_PER_PAGE  5
+
 @interface ResultViewController ()
 
 @end
@@ -36,35 +38,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self displayHUD:@"加载中..."];
-    [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:1 count:5 withBlock:^(NSArray *result) {
-        if (result &&[result count] > 0) {
-            [self hideHUD:YES];
-            [resultArray removeAllObjects];
-            [resultArray addObjectsFromArray:result];
-            [_resultTableView reloadData];
-            if ([result count] == 5) {
-                page++;
-                [_resultTableView setTableFooterView:_footView];
-            } else {
-                [_resultTableView setTableFooterView:nil];
-            }
-        } else {
-            [self displayHUDTitle:nil message:@"无相关结果"];
-            NSLog(@"无相关结果");
-        }
-    }];
+    [self search:nil];
 }
 
-- (IBAction)loadMore:(id)sender
+- (IBAction)search:(id)sender
 {
     [self displayHUD:@"加载中..."];
-    [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:page count:5 withBlock:^(NSArray *result) {
-        if (result &&[result count] > 0) {
+    [[LZService shared] pcSearchByStartCity:_beginCity endCity:_endCity sendDate:_sendDate page:page count:RESULT_PER_PAGE withBlock:^(NSArray *result) {
+        if ([result count] > 0) {
             [self hideHUD:YES];
             [resultArray addObjectsFromArray:result];
             [_resultTableView reloadData];
-            if ([result count] == 5) {
+            if ([result count] == RESULT_PER_PAGE) {
                 page++;
                 [_resultTableView setTableFooterView:_footView];
             } else {
@@ -79,7 +64,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 170;
+    return 155;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
