@@ -26,8 +26,6 @@
 		1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18E18AB502B00A2380A /* ZBTextValidate.m */; };
 		1894C19F18AB502B00A2380A /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C19018AB502B00A2380A /* ZBViewController.m */; };
 		1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */; };
-		18B8472518ADC93700E1B63B /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8472418ADC93700E1B63B /* TextFieldCell.m */; };
-		18B8472718ADC94F00E1B63B /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B8472618ADC94F00E1B63B /* TextFieldCell.xib */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
 		18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91618A5E0E800BFA2EE /* UIKit.framework */; };
@@ -95,9 +93,6 @@
 		1894C19018AB502B00A2380A /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		1894C1A018AB522800A2380A /* AppDelegate+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Appearance.h"; sourceTree = "<group>"; };
 		1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Appearance.m"; sourceTree = "<group>"; };
-		18B8472318ADC93700E1B63B /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
-		18B8472418ADC93700E1B63B /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
-		18B8472618ADC94F00E1B63B /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4C91218A5E0E800BFA2EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -298,9 +293,6 @@
 				1894C16E18AB105200A2380A /* PcSearchCell.h */,
 				1894C16F18AB105200A2380A /* PcSearchCell.m */,
 				1894C17118AB108B00A2380A /* PcSearchCell.xib */,
-				18B8472318ADC93700E1B63B /* TextFieldCell.h */,
-				18B8472418ADC93700E1B63B /* TextFieldCell.m */,
-				18B8472618ADC94F00E1B63B /* TextFieldCell.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -385,7 +377,6 @@
 			files = (
 				18D4C91D18A5E0E800BFA2EE /* InfoPlist.strings in Resources */,
 				1894C19118AB502B00A2380A /* .gitignore in Resources */,
-				18B8472718ADC94F00E1B63B /* TextFieldCell.xib in Resources */,
 				18D4C94618A5FB2400BFA2EE /* OrderViewController.xib in Resources */,
 				1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */,
 				18D4C94B18A5FB3F00BFA2EE /* CarpoolingViewController.xib in Resources */,
@@ -444,7 +435,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */,
-				18B8472518ADC93700E1B63B /* TextFieldCell.m in Sources */,
 				1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */,
 				1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */,
 				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,
