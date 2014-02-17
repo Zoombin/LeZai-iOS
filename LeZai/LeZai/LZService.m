@@ -71,10 +71,26 @@
     }];
 }
 
-- (void)pcSearchByStartCity:(NSString *)sCity endCity:(NSString *)eCity sendDate:(NSString *)sendDate page:(int)page count:(int)count withBlock:(void (^)(NSArray *))block
+- (void)pcSearchByStartCity:(NSString *)sCity
+                    endCity:(NSString *)eCity
+                   sendDate:(NSString *)sendDate
+                       sort:(NSString *)sort
+                       page:(int)page
+                      count:(int)count
+                  withBlock:(void (^)(NSArray *))block
 {
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    NSString *paramsString = [NSString stringWithFormat:@"{\"Token\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserName\":null,\"Password\":null,\"ClientMode\":\"Ios\",\"OrderNo\":null,\"BeginCity\":\"%@\",\"EndCity\":\"%@\",\"SendDate\":\"%@\",\"OrderBy\":\"LM_PRICE ASC\",\"StartRows\":\"%d\",\"RecordRows\":\"%d\"}",[[device identifierForVendor] UUIDString],sCity,eCity,sendDate,page,count];
+    if (!sCity) {
+        sCity = @"";
+    }
+    if (!eCity) {
+        eCity = @"";
+    }
+    if (!sendDate) {
+        sendDate = @"";
+    }
+    NSString *paramsString = [NSString stringWithFormat:@"{\"Token\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserName\":null,\"Password\":null,\"ClientMode\":\"Ios\",\"OrderNo\":null,\"BeginCity\":\"%@\",\"EndCity\":\"%@\",\"SendDate\":\"%@\",\"OrderBy\":\"%@\",\"StartRows\":\"%d\",\"RecordRows\":\"%d\"}",[[device identifierForVendor] UUIDString],sCity,eCity,sendDate,sort,page,count];
+    NSLog(@"%@", paramsString);
     NSDictionary *params = @{@"ServiceName": @"PcPriceSearch", @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

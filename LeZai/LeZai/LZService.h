@@ -20,6 +20,7 @@
 - (void)pcSearchByStartCity:(NSString *)sCity
                     endCity:(NSString *)eCity
                    sendDate:(NSString *)sendDate
+                       sort:(NSString *)sort
                        page:(int)page
                       count:(int)count
                   withBlock:(void(^)(NSArray *result))block;

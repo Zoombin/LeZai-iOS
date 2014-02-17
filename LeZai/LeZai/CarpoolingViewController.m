@@ -52,10 +52,6 @@
     [_datePickerView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) - offset, 320, 206)];
     [self.view addSubview:_datePickerView];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    [_dateSelectButton setTitle:[dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateNormal];
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
     [_scrollView addGestureRecognizer:tapGesture];
 }
@@ -82,7 +78,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self hidenDatePicker:nil];
+    [_datePickerView setHidden:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -98,14 +94,6 @@
 - (void)search
 {
     [self hideKeyBoard];
-    if ([_startLocationTextField.text areAllCharactersSpace]) {
-        [self displayHUDTitle:nil message:@"请输入始发地!"];
-        return;
-    }
-    if ([_endLocationTextField.text areAllCharactersSpace]) {
-        [self displayHUDTitle:nil message:@"请输入目的地!"];
-        return;
-    }
     ResultViewController *resultViewController = [[ResultViewController alloc] init];
     resultViewController.beginCity = _startLocationTextField.text;
     resultViewController.endCity = _endLocationTextField.text;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *resultTableView;
 @property (nonatomic, strong) NSString *beginCity;
 @property (nonatomic, strong) NSString *endCity;
