@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrderViewController : UIViewController <UISearchBarDelegate>
+@interface OrderViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) IBOutlet UITextView *resultTextView;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIButton *searchButton;
+@property (nonatomic, weak) IBOutlet UITableView *resultTableView;
+- (IBAction)hidenKeyBoard:(id)sender;
 - (IBAction)searchOrder:(id)sender;
 @end
