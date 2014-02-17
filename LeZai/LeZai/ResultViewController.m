@@ -10,6 +10,7 @@
 #import "LZService.h"
 #import "PcSearchCell.h"
 #import "UIViewController+HUD.h"
+#import "PCObject.h"
 
 #define RESULT_PER_PAGE  5
 
@@ -87,7 +88,7 @@
                                   withBlock:^(NSArray *result) {
         if ([result count] > 0) {
             [self hideHUD:YES];
-            [resultArray addObjectsFromArray:result];
+            [resultArray addObjectsFromArray:[PCObject createWithArray:result]];
             [_resultTableView reloadData];
             if ([result count] == RESULT_PER_PAGE) {
                 page++;
@@ -104,7 +105,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 155;
+    return 135;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

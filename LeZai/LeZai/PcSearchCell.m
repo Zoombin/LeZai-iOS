@@ -26,17 +26,15 @@
     // Configure the view for the selected state
 }
 
-- (void)updateInfo:(NSDictionary *)dict
+- (void)updateInfo:(PCObject *)obj
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-    NSDateFormatter *newformatter = [[NSDateFormatter alloc] init];
-    [newformatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *beginDate = [formatter dateFromString:dict[@"BeginDate"]];
-    NSDate *endDate = [formatter dateFromString:dict[@"EndDate"]];
-    
-    [_resultTextView setText:[NSString stringWithFormat:@"始发地:%@\n目的地:%@\n运价（元）:%@/KG %@/m³ MIN:%@\n有效期:%@~%@\n时效:%@\n发车时间:%@\n发布时间:%@",dict[@"BeginAreaName"],dict[@"EndAreaName"],dict[@"KgPrice"],dict[@"LmPrice"],dict[@"MinPrice"],[newformatter stringFromDate:beginDate],[newformatter stringFromDate:endDate],dict[@"OnWayTime"],dict[@"BusTime"],dict[@"PublisDate"]]];
-    NSLog(@"%@", _resultTextView.text);
+    _startLocationLabel.text = [NSString stringWithFormat:@"始发地:%@",obj.beginAreaName];
+    _endLocationLabel.text = [NSString stringWithFormat:@"目的地:%@",obj.endAreaName];
+    _priceLabel.text = [NSString stringWithFormat:@"价格:%@/kg %@/m³ Min:%@",obj.kgPrice, obj.lmPrice, obj.minPrice];
+    _beginAndEndLabel.text = [NSString stringWithFormat:@"有效期:%@ ~ %@", obj.beginDate, obj.endDate];
+    _onWayTimeLabel.text = [NSString stringWithFormat:@"时效:%@", obj.onWayTime];
+    _busTimeLabel.text = [NSString stringWithFormat:@"发车时间:%@", obj.busTime];
+    _publisDate.text = [NSString stringWithFormat:@"发布日期:%@", obj.pushlishDate];
 }
 
 @end

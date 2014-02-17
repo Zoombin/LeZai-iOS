@@ -26,6 +26,7 @@
 		1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18E18AB502B00A2380A /* ZBTextValidate.m */; };
 		1894C19F18AB502B00A2380A /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C19018AB502B00A2380A /* ZBViewController.m */; };
 		1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */; };
+		18B659A318B1FDFD00193D85 /* PCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B659A218B1FDFD00193D85 /* PCObject.m */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
 		18D4C91718A5E0E800BFA2EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91618A5E0E800BFA2EE /* UIKit.framework */; };
@@ -93,6 +94,8 @@
 		1894C19018AB502B00A2380A /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		1894C1A018AB522800A2380A /* AppDelegate+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Appearance.h"; sourceTree = "<group>"; };
 		1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Appearance.m"; sourceTree = "<group>"; };
+		18B659A118B1FDFD00193D85 /* PCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCObject.h; sourceTree = "<group>"; };
+		18B659A218B1FDFD00193D85 /* PCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCObject.m; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4C91218A5E0E800BFA2EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +157,8 @@
 			children = (
 				1894C16B18AA1DD400A2380A /* LZService.h */,
 				1894C16C18AA1DD400A2380A /* LZService.m */,
+				18B659A118B1FDFD00193D85 /* PCObject.h */,
+				18B659A218B1FDFD00193D85 /* PCObject.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */,
+				18B659A318B1FDFD00193D85 /* PCObject.m in Sources */,
 				1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */,
 				1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */,
 				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,
