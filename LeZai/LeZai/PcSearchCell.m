@@ -28,7 +28,15 @@
 
 - (void)updateInfo:(NSDictionary *)dict
 {
-    [_resultTextView setText:[NSString stringWithFormat:@"始发地:%@\n目的地:%@\n运价（元）:%@/公斤 %@/立方 最低运价:%@\n有效期:%@~%@\n时效:%@\n发车时间:%@\n发布时间:%@",dict[@"BeginAreaName"],dict[@"EndAreaName"],dict[@"KgPrice"],dict[@"LmPrice"],dict[@"MinPrice"],dict[@"BeginDate"],dict[@"EndDate"],dict[@"OnWayTime"],dict[@"BusTime"],dict[@"PublisDate"]]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+    NSDateFormatter *newformatter = [[NSDateFormatter alloc] init];
+    [newformatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *beginDate = [formatter dateFromString:dict[@"BeginDate"]];
+    NSDate *endDate = [formatter dateFromString:dict[@"EndDate"]];
+    
+    [_resultTextView setText:[NSString stringWithFormat:@"始发地:%@\n目的地:%@\n运价（元）:%@/KG %@/m³ MIN:%@\n有效期:%@~%@\n时效:%@\n发车时间:%@\n发布时间:%@",dict[@"BeginAreaName"],dict[@"EndAreaName"],dict[@"KgPrice"],dict[@"LmPrice"],dict[@"MinPrice"],[newformatter stringFromDate:beginDate],[newformatter stringFromDate:endDate],dict[@"OnWayTime"],dict[@"BusTime"],dict[@"PublisDate"]]];
+    NSLog(@"%@", _resultTextView.text);
 }
 
 @end
