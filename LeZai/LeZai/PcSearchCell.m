@@ -28,13 +28,13 @@
 
 - (void)updateInfo:(PCObject *)obj
 {
-    _startLocationLabel.text = [NSString stringWithFormat:@"始发地:%@",obj.beginAreaName];
-    _endLocationLabel.text = [NSString stringWithFormat:@"目的地:%@",obj.endAreaName];
-    _priceLabel.text = [NSString stringWithFormat:@"价格:%@/kg %@/m³ Min:%@",obj.kgPrice, obj.lmPrice, obj.minPrice];
-    _beginAndEndLabel.text = [NSString stringWithFormat:@"有效期:%@ ~ %@", obj.beginDate, obj.endDate];
-    _onWayTimeLabel.text = [NSString stringWithFormat:@"时效:%@", obj.onWayTime];
-    _busTimeLabel.text = [NSString stringWithFormat:@"发车时间:%@", obj.busTime];
-    _publisDate.text = [NSString stringWithFormat:@"发布日期:%@", obj.pushlishDate];
+    _startLocationLabel.text = [NSString stringWithFormat:@"%@",obj.beginAreaName];
+    _endLocationLabel.text = [NSString stringWithFormat:@"%@",obj.endAreaName];
+    _priceLabel.text = [NSString stringWithFormat:@"%@/kg %@/m³ Min:%@",obj.kgPrice, obj.lmPrice, obj.minPrice];
+    _beginAndEndLabel.text = [NSString stringWithFormat:@"%@ ~ %@", obj.beginDate, obj.endDate];
+    _onWayTimeLabel.text = [NSString stringWithFormat:@"%@", obj.onWayTime];
+    _busTimeLabel.text = [NSString stringWithFormat:@"%@", obj.busTime];
+    _publisDate.text = [NSString stringWithFormat:@"%@", obj.pushlishDate];
 }
 
 @end
