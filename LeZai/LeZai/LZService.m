@@ -113,4 +113,26 @@
     }];
 }
 
+//版本检查
+- (void)checkUpdateWithBlock:(void (^)(NSDictionary *result))block
+{
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}"];
+    NSDictionary *params = @{@"ServiceName": @"IosCheck", @"ServicePara": paramsString};
+    
+    [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id theObject = [self jsonValue:responseObject];
+        NSArray *byteArray = theObject[@"ReturnData"];
+        if (byteArray && [byteArray isKindOfClass:[NSArray class]]) {
+            NSData *resultData = [self byteArrayToData:byteArray];
+            if (block) {
+                block([self jsonValue:resultData]);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil);
+        }
+    }];
+}
+
 @end

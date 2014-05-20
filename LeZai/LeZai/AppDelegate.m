@@ -10,8 +10,11 @@
 #import "OrderViewController.h"
 #import "CarpoolingViewController.h"
 #import "AppDelegate+Appearance.h"
+#import "LZService.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    NSString *downloadUrl;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -20,9 +23,31 @@
     [self customizeAppearance];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self addTabBar];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)checkUpdate
+{
+    [[LZService shared] checkUpdateWithBlock:^(NSDictionary *result) {
+        if (result && [result isKindOfClass:[NSDictionary class]]) {
+           NSString *cversion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+            NSString *version = result[@"IosVerion"];
+            downloadUrl = result[@"IosUrl"];
+            if(version && [version compare:cversion] == NSOrderedSame) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"有新版本更新！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                [alertView show];
+            }
+        }
+    }];
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/app/id823497557"]];
+    }
 }
 
 - (void)addTabBar
@@ -36,6 +61,8 @@
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self checkUpdate];
     
 }
 

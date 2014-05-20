@@ -24,4 +24,7 @@
                        page:(int)page
                       count:(int)count
                   withBlock:(void(^)(NSArray *result))block;
+
+//版本检查
+- (void)checkUpdateWithBlock:(void(^)(NSDictionary *result))block;
 @end
