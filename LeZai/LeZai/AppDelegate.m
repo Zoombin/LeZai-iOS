@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "OrderViewController.h"
 #import "CarpoolingViewController.h"
+#import "DBViewController.h"
 #import "AppDelegate+Appearance.h"
 #import "LZService.h"
+#import "APService.h"
 
 @implementation AppDelegate {
     NSString *downloadUrl;
@@ -20,11 +22,29 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    // Required
+//    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                   UIRemoteNotificationTypeSound |
+//                                                   UIRemoteNotificationTypeAlert)];
+//    // Required
+//    [APService setupWithOption:launchOptions];
+    
     [self customizeAppearance];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self addTabBar];
     return YES;
 }
+
+//
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    // Required
+//    [APService registerDeviceToken:deviceToken];
+//}
+//
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    // Required
+//    [APService handleRemoteNotification:userInfo];
+//}
 
 - (void)checkUpdate
 {
@@ -33,7 +53,7 @@
            NSString *cversion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
             NSString *version = result[@"IosVerion"];
             downloadUrl = result[@"IosUrl"];
-            if(version && [version compare:cversion] == NSOrderedSame) {
+            if(version && [version compare:cversion] == NSOrderedDescending) {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"有新版本更新！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
                 [alertView show];
             }
@@ -54,6 +74,7 @@
 {
     UINavigationController *carpoolingNavigationBar = [[UINavigationController alloc] initWithRootViewController:[OrderViewController new]];
     UINavigationController *orderNavigationBar = [[UINavigationController alloc] initWithRootViewController:[CarpoolingViewController new]];
+//    UINavigationController *dbNavigationBar = [[UINavigationController alloc] initWithRootViewController:[DBViewController new]];
     
     _tabBarController = [[UITabBarController alloc] init];
     [_tabBarController setViewControllers:@[carpoolingNavigationBar, orderNavigationBar]];

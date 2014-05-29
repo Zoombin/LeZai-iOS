@@ -48,7 +48,8 @@
 - (void)searchOrderByOrderNO:(NSString *)orederNo
                    withBlock:(void(^)(NSString *result))block
 {
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}",orederNo];
+    UIDevice *device = [UIDevice currentDevice];//创建设备对象
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Ios\",\"ClientKey\":\"%@\"\"UserName\":null,\"Password\":null}",[[device identifierForVendor] UUIDString],orederNo];
     NSDictionary *params = @{@"ServiceName": @"OrderState", @"ServicePara": paramsString};
 
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.translucent = NO;
     [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
     [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
     [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
