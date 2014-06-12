@@ -69,6 +69,14 @@
 - (IBAction)loginButtonClick:(id)sender
 {
     [self hidenAllKeyboard];
+    if ([_accountTextField.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入账号!"];
+        return;
+    }
+    if ([_passwordTextField.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入密码!"];
+        return;
+    }
     [self displayHUD:@"登录中..."];
     [[LZService shared] loginOrRegister:_accountTextField.text
                                password:_passwordTextField.text
