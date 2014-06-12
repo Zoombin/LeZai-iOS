@@ -15,6 +15,8 @@
 @interface UploadViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) int type;
+@property (nonatomic, strong) NSString *oid;
+@property (nonatomic, strong) NSString *orderNo;
 @property (nonatomic, weak) IBOutlet UIButton *imageButton;
 @property (nonatomic, weak) IBOutlet UITextView *messageTextView;
 @property (nonatomic, strong) UIImage *image;

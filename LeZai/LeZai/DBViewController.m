@@ -38,6 +38,7 @@
     [super viewDidLoad];
     if ([[LZService shared] userToken]) {
         _loginScroll.hidden = YES;
+        [self loadAllOrderList];
     }
     self.navigationItem.rightBarButtonItem = nil;
     // Do any additional setup after loading the view from its nib.
@@ -104,7 +105,7 @@
 - (void)loadOrderedList
 {
     [self displayHUD:@"加载中..."];
-    [[LZService shared] getOrderList:ORDER_PICK withBlock:^(NSArray *result, NSError *error) {
+    [[LZService shared] getOrderList:ORDER_SEND withBlock:^(NSArray *result, NSError *error) {
         NSLog(@"%@", result);
         [self hideHUD:YES];
         if ([result count] > 0) {
@@ -166,6 +167,7 @@
 - (IBAction)firstSegValueChanged:(id)sender
 {
     UISegmentedControl *control = (UISegmentedControl *)sender;
+    [_dbTableView setTableHeaderView:nil];
     if (control.selectedSegmentIndex == 0) {
         NSLog(@"1");
         [self loadAllOrderList];
@@ -175,7 +177,39 @@
     } else {
         NSLog(@"3");
         [self loadOrderedList];
+        [_dbTableView setTableHeaderView:_segmentedControl];
     }
+}
+
+- (IBAction)secondSegValueChanged:(id)sender
+{
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    int type = 0;
+    
+    if (control.selectedSegmentIndex == 0) {
+        NSLog(@"1");
+        type = ORDER_PICK;
+    } else if (control.selectedSegmentIndex == 1) {
+        NSLog(@"2");
+        type = ORDER_SEND;
+    } else if (control.selectedSegmentIndex == 2) {
+        NSLog(@"2");
+        type = ORDER_FINISH;
+    }  else {
+        NSLog(@"3");
+        type = ORDER_CANCEL;
+    }
+    [[LZService shared] getOrderList:type withBlock:^(NSArray *result, NSError *error) {
+        NSLog(@"%@", result);
+        [self hideHUD:YES];
+        if ([result count] > 0) {
+            resultInfo = [DBObject createDBObjectsWithArray:result];
+            [_dbTableView reloadData];
+        } else {
+            resultInfo = nil;
+            [_dbTableView reloadData];
+        }
+    }];
 }
 
 @end

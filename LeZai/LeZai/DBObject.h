@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *submitDate; //发布时间
 @property (nonatomic, strong) NSString *getDate; //提货时间
 @property (nonatomic, strong) NSString *status; //状态
+@property (nonatomic, strong) NSString *statusName; 
 @property (nonatomic, strong) NSString *carSize; //车型要求
 @property (nonatomic, strong) NSString *orderOid; //订单id
 @property (nonatomic, strong) NSString *orderInfo;

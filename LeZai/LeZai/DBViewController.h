@@ -14,7 +14,9 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 - (IBAction)loginButtonClick:(id)sender;
 - (IBAction)registerButtonClick:(id)sender;
-@property (nonatomic, weak) IBOutlet UITableView *dbTableView;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) IBOutlet UITableView *dbTableView;
 @property (nonatomic, weak) IBOutlet UIScrollView *loginScroll;
 - (IBAction)firstSegValueChanged:(id)sender;
+- (IBAction)secondSegValueChanged:(id)sender;
 @end

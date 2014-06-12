@@ -7,10 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DBDetailViewController">
             <connections>
+                <outlet property="cancelButton" destination="AwE-if-t4A" id="aVZ-of-6eb"/>
                 <outlet property="endLocationLabel" destination="nTf-hx-5ng" id="Sjv-GY-b4k"/>
                 <outlet property="finishDateLabel" destination="cDb-QO-PxV" id="mw9-Oj-Yg8"/>
                 <outlet property="goodInfoTextView" destination="3Tx-ZZ-wCC" id="NmF-Gk-npK"/>
+                <outlet property="orderButton" destination="jHX-hf-NCg" id="s5U-OT-SMW"/>
+                <outlet property="pickButton" destination="agY-jy-yza" id="oFJ-uX-iyS"/>
                 <outlet property="priceLabel" destination="AYK-hH-aCx" id="TXH-6l-Qpn"/>
+                <outlet property="sendButton" destination="Vqf-oO-zjI" id="EVG-kd-JeP"/>
                 <outlet property="startLocationLabel" destination="57I-uI-HRv" id="rZ0-cS-Sf5"/>
                 <outlet property="statusLabel" destination="ADp-TI-p5W" id="zpd-N5-dP1"/>
                 <outlet property="submitLabel" destination="bx2-l1-hVe" id="sAo-2Y-a1b"/>

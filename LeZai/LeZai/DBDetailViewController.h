@@ -18,6 +18,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *statusLabel;
 @property (nonatomic, strong) NSString *orderId;
 @property (nonatomic, weak) IBOutlet UITextView *goodInfoTextView;
+@property (nonatomic, weak) IBOutlet UIButton *orderButton;
+@property (nonatomic, weak) IBOutlet UIButton *pickButton;
+@property (nonatomic, weak) IBOutlet UIButton *sendButton;
+@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
 - (IBAction)orderButtonClick:(id)sender;
 - (IBAction)pickButtonClick:(id)sender;
 - (IBAction)sendButtonClick:(id)sender;

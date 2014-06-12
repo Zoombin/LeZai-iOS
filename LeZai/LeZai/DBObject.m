@@ -23,6 +23,15 @@
     obj.orderInfo = dict[@"DcjetCloneEntity"][@"OrderNameInfo"];
     obj.price = dict[@"Price"];
     obj.status = dict[@"DcjetCloneEntity"][@"State"];
+    if ([obj.status isEqualToString:@"B"]) {
+        obj.statusName = @"等待接单";
+    } else if ([obj.status isEqualToString:@"C"]) {
+        obj.statusName = @"接单成功";
+    } else if ([obj.status isEqualToString:@"E"]) {
+        obj.statusName = @"确定提货";
+    } else if ([obj.status isEqualToString:@"F"]) {
+        obj.statusName = @"订单完成";
+    }
     return obj;
 }
 

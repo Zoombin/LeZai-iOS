@@ -33,7 +33,7 @@
 
 - (void)saveUserToken:(NSString *)token
 {
-    [[NSUserDefaults standardUserDefaults] objectForKey:token];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:USER_TOKEN];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -249,15 +249,39 @@
 
 - (void)getOrderList:(int)type withBlock:(void (^)(NSArray *result, NSError *error))block
 {
-    //    GetInterCityListPick 等待提货
-    //    GetInterCityListIng 等待确认
-    //    GetInterCityListSend 等待收货
-    //     GetInterCityListCommit 订单完成
+    //    GetInterCityListPick   等待提货
+    //    GetInterCityListIng    等待确认
+    //    GetInterCityListSend   等待收货
+    //    GetInterCityListCommit 订单完成
+    //    GetInterCityListBack   撤销列表
     
-    NSArray *serviceName = @[@"GetInterCityListIng", @"GetInterCityListPick" ,@"GetInterCityListSend", @"GetInterCityListCommit", @"GetInterCityListCommit"];
+    NSArray *serviceName = @[@"GetInterCityListIng", @"GetInterCityListPick" ,@"GetInterCityListSend", @"GetInterCityListCommit", @"GetInterCityListBack"];
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
     NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"ClientMode\":\"Ios\",\"StartRows\":\"1\",\"RecordRows\":\"10\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken]];
     NSDictionary *params = @{@"ServiceName": serviceName[type - 1], @"ServicePara": paramsString};
+    
+    [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id theObject = [self jsonValue:responseObject];
+        NSArray *byteArray = theObject[@"ReturnData"];
+        if (byteArray && [byteArray isKindOfClass:[NSArray class]]) {
+            NSData *resultData = [self byteArrayToData:byteArray];
+            if (block) {
+                block([self jsonValue:resultData], nil);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)cancelOrder:(NSString *)message withBlock:(void (^)(NSDictionary *result, NSError *error))block
+{
+//    512字符
+    UIDevice *device = [UIDevice currentDevice];//创建设备对象
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"Message\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken], message];
+    NSDictionary *params = @{@"ServiceName" : @"GetInterCityListBackCommit", @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id theObject = [self jsonValue:responseObject];
@@ -282,10 +306,12 @@
                   withBlock:(void (^)(NSDictionary *result, NSError *error))block
 {
     NSString *fileName = [NSString stringWithFormat:@"%@%@.png", orderNO,isSendGoods ? @"送货" : @"提货"];
+    NSString *serviceName = isSendGoods ? @"GetInterCityListSendCommit" : @"GetInterCityListPickCommit";
+    
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
     NSString *fileBase64 = [imageData base64Encoding];
     NSString *operuser = @"13862090556";
-    NSString *orderOid = orderId;
+    NSString *orderOid = orderId; //Oid
     
     NSMutableDictionary *picInfo = [[NSMutableDictionary alloc] init];
     picInfo[@"filename"] = fileName;
@@ -297,7 +323,7 @@
     
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
     NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"ClientMode\":\"Ios\",\"PicInfo\":\"%@\",\"PicName\":\"%@\",\"CarTelPhone\":\"%@\",\"OrdOid\":\"%@\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken], fileBase64, fileName, operuser, orderOid];
-    NSDictionary *params = @{@"ServiceName": @"GetInterCityListPickCommit", @"ServicePara": paramsString};
+    NSDictionary *params = @{@"ServiceName": serviceName, @"ServicePara": paramsString};
     
     [self postPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id theObject = [self jsonValue:responseObject];

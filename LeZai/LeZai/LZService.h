@@ -59,6 +59,8 @@
 //已竞单
 - (void)getOrderList:(int)type withBlock:(void (^)(NSArray *result, NSError *error))block;
 
+//撤销
+- (void)cancelOrder:(NSString *)message withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
 - (void)uploadImageWithType:(BOOL)isSendGoods orderId:(NSString *)orderId image:(UIImage *)image orderNo:(NSString *)orderNO withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 

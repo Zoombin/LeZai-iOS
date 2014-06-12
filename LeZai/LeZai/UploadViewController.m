@@ -7,6 +7,8 @@
 //
 
 #import "UploadViewController.h"
+#import "UIViewController+Hud.h"
+#import "LZService.h"
 
 @interface UploadViewController ()
 
@@ -48,11 +50,35 @@
 - (IBAction)sumitButtonClick:(id)sender
 {
     if (_type == CANCEL_ORDER) {
-        
+        [[LZService shared] cancelOrder:_messageTextView.text withBlock:^(NSDictionary *result, NSError *error) {
+            NSLog(@"%@", result);
+            if ([result isKindOfClass:[NSDictionary class]] && result) {
+                if ([result[@"OrdState"] integerValue] == 1) {
+                    [self displayHUDTitle:nil message:@"撤销成功!"];
+                    [self performSelector:@selector(pushToRoot) withObject:nil afterDelay:2.0];
+                } else {
+                    [self displayHUDTitle:nil message:@"撤销失败!"];
+                }
+            }
+        }];
     } else {
-        BOOL isPick = _type == PICK_ORDER;
-        
+        BOOL isSend = _type == SEND_ORDER;
+        [[LZService shared] uploadImageWithType:isSend orderId:_oid image:_image orderNo:_orderNo withBlock:^(NSDictionary *result, NSError *error) {
+            NSLog(@"%@", result);
+            if (result && [result isKindOfClass:[NSDictionary class]]) {
+                if ([result[@"OrdState"] integerValue] == 1) {
+                    [self displayHUDTitle:nil message:@"操作成功!"];
+                } else {
+                    [self displayHUDTitle:nil message:@"操作失败!"];
+                }
+            }
+        }];
     }
+}
+
+- (void)pushToRoot
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)takePhoto
@@ -81,8 +107,8 @@
 - (void)imagePickerController: (UIImagePickerController *)picker didFinishPickingMediaWithInfo: (NSDictionary *)info
 {
 	UIImage* image = info[UIImagePickerControllerOriginalImage];
-    image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.3)];
-    [_imageButton setImage:image forState:UIControlStateNormal];
+    _image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.3)];
+    [_imageButton setImage:_image forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
