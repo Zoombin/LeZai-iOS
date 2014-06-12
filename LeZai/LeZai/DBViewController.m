@@ -105,7 +105,7 @@
 - (void)loadOrderedList
 {
     [self displayHUD:@"加载中..."];
-    [[LZService shared] getOrderList:ORDER_SEND withBlock:^(NSArray *result, NSError *error) {
+    [[LZService shared] getOrderList:ORDER_PICK withBlock:^(NSArray *result, NSError *error) {
         NSLog(@"%@", result);
         [self hideHUD:YES];
         if ([result count] > 0) {
@@ -193,12 +193,13 @@
         NSLog(@"2");
         type = ORDER_SEND;
     } else if (control.selectedSegmentIndex == 2) {
-        NSLog(@"2");
+        NSLog(@"3");
         type = ORDER_FINISH;
     }  else {
-        NSLog(@"3");
+        NSLog(@"4");
         type = ORDER_CANCEL;
     }
+    [self displayHUD:@"加载中..."];
     [[LZService shared] getOrderList:type withBlock:^(NSArray *result, NSError *error) {
         NSLog(@"%@", result);
         [self hideHUD:YES];

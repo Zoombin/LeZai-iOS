@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "UIViewController+Hud.h"
 #import "LZService.h"
 
 @interface RegisterViewController ()
@@ -40,7 +41,14 @@
 - (IBAction)registerButtonClick:(id)sender
 {
     [[LZService shared] loginOrRegister:_accountTextField.text password:_passwordTextField.text type:0 withBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
+        if ([result isKindOfClass:[NSDictionary class]] && result) {
+            if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
+                [self displayHUDTitle:nil message:@"注册成功请等待后台审核!"];
+            } else {
+                [self displayHUDTitle:nil message:@"注册失败!"];
+            }
+        }
+        
     }];
 }
 

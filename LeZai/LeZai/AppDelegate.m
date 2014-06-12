@@ -20,7 +20,6 @@
 
 - (void)test
 {
-    UIImage *image = [UIImage imageNamed:@"widget_dropdown_155_n"];
 //    [[LZService shared] uploadImageWithType:YES orderId:@"ca00521b-bfad-484b-bcb8-3b53eb1d3ba7" image:image orderNo:@"1406092000016" withBlock:^(NSDictionary *result, NSError *error) {
 //        NSLog(@"%@", result);
 //    }];
@@ -49,11 +48,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     // Required
-//    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-//                                                   UIRemoteNotificationTypeSound |
-//                                                   UIRemoteNotificationTypeAlert)];
-//    // Required
-//    [APService setupWithOption:launchOptions];
+    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                   UIRemoteNotificationTypeSound |
+                                                   UIRemoteNotificationTypeAlert)];
+    // Required
+    [APService setupWithOption:launchOptions];
     
     [self customizeAppearance];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -62,15 +61,15 @@
 }
 
 //
-//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//    // Required
-//    [APService registerDeviceToken:deviceToken];
-//}
-//
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    // Required
-//    [APService handleRemoteNotification:userInfo];
-//}
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Required
+    [APService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // Required
+    [APService handleRemoteNotification:userInfo];
+}
 
 - (void)checkUpdate
 {
@@ -85,8 +84,6 @@
             }
         }
     }];
-    
-    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
