@@ -47,6 +47,9 @@
         [self loadAllOrderList];
     }
     self.navigationItem.rightBarButtonItem = nil;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenAllKeyboard)];
+    [_loginScroll addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -65,17 +68,22 @@
 
 - (IBAction)loginButtonClick:(id)sender
 {
- [[LZService shared] loginOrRegister:_accountTextField.text
-                            password:_passwordTextField.text
-                                type:1
-                           withBlock:^(NSDictionary *result, NSError *error) {
-     if (result && [result isKindOfClass:[NSDictionary class]]) {
-         if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
-             [[LZService shared] saveUserToken:result[@"Token"]];
-             [self showBoListView];
-         }
-     }
- }];
+    [self hidenAllKeyboard];
+    [self displayHUD:@"登录中..."];
+    [[LZService shared] loginOrRegister:_accountTextField.text
+                               password:_passwordTextField.text
+                                   type:1
+                              withBlock:^(NSDictionary *result, NSError *error) {
+                                  if (result && [result isKindOfClass:[NSDictionary class]]) {
+                                      if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
+                                          [self hideHUD:YES];
+                                          [[LZService shared] saveUserToken:result[@"Token"]];
+                                          [self showBoListView];
+                                      } else {
+                                          [self displayHUDTitle:nil message:@"登录失败"];
+                                      }
+                                  }
+                              }];
 }
 
 - (void)loadAllOrderList
@@ -84,43 +92,43 @@
     [[LZService shared] orderListPage:page
                                 count:count
                             WithBlock:^(NSArray *result, NSError *error) {
-        [self hideHUD:YES];
-        if ([result count] > 0) {
-            if ([result count] < count) {
-                [_dbTableView setTableFooterView:nil];
-            } else {
-                [_dbTableView setTableFooterView:_footView];
-            }
-            resultInfo = [DBObject createDBObjectsWithArray:result];
-            [_dbTableView reloadData];
-        } else {
-            resultInfo = nil;
-            [_dbTableView reloadData];
-        }
-    }];
+                                [self hideHUD:YES];
+                                if ([result count] > 0) {
+                                    if ([result count] < count) {
+                                        [_dbTableView setTableFooterView:nil];
+                                    } else {
+                                        [_dbTableView setTableFooterView:_footView];
+                                    }
+                                    resultInfo = [DBObject createDBObjectsWithArray:result];
+                                    [_dbTableView reloadData];
+                                } else {
+                                    resultInfo = nil;
+                                    [_dbTableView reloadData];
+                                }
+                            }];
 }
 
 - (void)loadOrderingList
 {
-   [self displayHUD:@"加载中..."];
-   [[LZService shared] getOrderList:ORDER_ORDERING
-                               page:1
-                              count:10
-                          withBlock:^(NSArray *result, NSError *error) {
-       [self hideHUD:YES];
-       if ([result count] > 0) {
-           if ([result count] < count) {
-               [_dbTableView setTableFooterView:nil];
-           } else {
-               [_dbTableView setTableFooterView:_footView];
-           }
-           resultInfo = [DBObject createDBObjectsWithArray:result];
-           [_dbTableView reloadData];
-       } else {
-           resultInfo = nil;
-           [_dbTableView reloadData];
-       }
-   }];
+    [self displayHUD:@"加载中..."];
+    [[LZService shared] getOrderList:ORDER_ORDERING
+                                page:1
+                               count:10
+                           withBlock:^(NSArray *result, NSError *error) {
+                               [self hideHUD:YES];
+                               if ([result count] > 0) {
+                                   if ([result count] < count) {
+                                       [_dbTableView setTableFooterView:nil];
+                                   } else {
+                                       [_dbTableView setTableFooterView:_footView];
+                                   }
+                                   resultInfo = [DBObject createDBObjectsWithArray:result];
+                                   [_dbTableView reloadData];
+                               } else {
+                                   resultInfo = nil;
+                                   [_dbTableView reloadData];
+                               }
+                           }];
 }
 
 - (void)loadOrderedList
@@ -130,21 +138,21 @@
                                 page:1
                                count:10
                            withBlock:^(NSArray *result, NSError *error) {
-        NSLog(@"%@", result);
-        [self hideHUD:YES];
-        if ([result count] > 0) {
-            if ([result count] < count) {
-                [_dbTableView setTableFooterView:nil];
-            } else {
-                [_dbTableView setTableFooterView:_footView];
-            }
-            resultInfo = [DBObject createDBObjectsWithArray:result];
-            [_dbTableView reloadData];
-        } else {
-            resultInfo = nil;
-            [_dbTableView reloadData];
-        }
-    }]; 
+                               NSLog(@"%@", result);
+                               [self hideHUD:YES];
+                               if ([result count] > 0) {
+                                   if ([result count] < count) {
+                                       [_dbTableView setTableFooterView:nil];
+                                   } else {
+                                       [_dbTableView setTableFooterView:_footView];
+                                   }
+                                   resultInfo = [DBObject createDBObjectsWithArray:result];
+                                   [_dbTableView reloadData];
+                               } else {
+                                   resultInfo = nil;
+                                   [_dbTableView reloadData];
+                               }
+                           }];
 }
 
 - (void)hidenAllKeyboard

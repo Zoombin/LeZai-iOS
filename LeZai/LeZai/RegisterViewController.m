@@ -29,7 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenAllKeyboard)];
+    [self.view addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)hidenAllKeyboard
+{
+    [_accountTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    [_confirmTextField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +49,25 @@
 
 - (IBAction)registerButtonClick:(id)sender
 {
+    [self hidenAllKeyboard];
+    if ([_accountTextField.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入账号!"];
+        return;
+    }
+    if ([_passwordTextField.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入密码!"];
+        return;
+    }
+    if ([_passwordTextField.text areAllCharactersSpace]) {
+        [self displayHUDTitle:nil message:@"请输入确认密码!"];
+        return;
+    }
+    if (![_passwordTextField.text isEqualToString:_confirmTextField.text]) {
+        [self displayHUDTitle:nil message:@"两次密码不一致"];
+        return;
+    }
+    
+    [self displayHUD:@"注册中..."];
     [[LZService shared] loginOrRegister:_accountTextField.text password:_passwordTextField.text type:0 withBlock:^(NSDictionary *result, NSError *error) {
         if ([result isKindOfClass:[NSDictionary class]] && result) {
             if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
@@ -47,8 +75,9 @@
             } else {
                 [self displayHUDTitle:nil message:@"注册失败!"];
             }
+        } else {
+           [self displayHUDTitle:nil message:@"注册失败!"];
         }
-        
     }];
 }
 

@@ -45,10 +45,10 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStyleBordered target:self action:@selector(search)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
-    NSInteger offset = 156;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        offset = 206;
-    }
+    NSInteger offset = 206;
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+//        offset = 206;
+//    }
     [_datePickerView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) - offset, 320, 206)];
     [self.view addSubview:_datePickerView];
     
