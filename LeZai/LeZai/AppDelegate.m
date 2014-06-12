@@ -18,8 +18,34 @@
     NSString *downloadUrl;
 }
 
+- (void)test
+{
+    UIImage *image = [UIImage imageNamed:@"widget_dropdown_155_n"];
+//    [[LZService shared] uploadImageWithType:YES orderId:@"ca00521b-bfad-484b-bcb8-3b53eb1d3ba7" image:image orderNo:@"1406092000016" withBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result);
+//    }];
+//    [[LZService shared] orderListPage:1 count:10 WithBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result);
+//    }];
+//    [[LZService shared] orderInfo:@"05a27f7b-7dcc-463f-b121-53366be3a86e" withBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result);
+//    }];
+//    [[LZService shared] addOrder:@"1704b8b6-bc0c-4ff8-923b-b6788f4fc5b8" price:@"100" withBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result); //用Oid
+//    }];
+//    [[LZService shared] loginOrRegister:@"13862090556" password:@"123456" withBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result);
+//    }];
+    
+//    [[LZService shared] OrderedListWithBlock:^(NSDictionary *result, NSError *error) {
+//        NSLog(@"%@", result);
+//    }];
+    //Test Token: adcc88e110544b9596ef2fda67403a66 13862090556 123456
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self test];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     // Required
@@ -74,10 +100,10 @@
 {
     UINavigationController *carpoolingNavigationBar = [[UINavigationController alloc] initWithRootViewController:[OrderViewController new]];
     UINavigationController *orderNavigationBar = [[UINavigationController alloc] initWithRootViewController:[CarpoolingViewController new]];
-//    UINavigationController *dbNavigationBar = [[UINavigationController alloc] initWithRootViewController:[DBViewController new]];
+    UINavigationController *dbNavigationBar = [[UINavigationController alloc] initWithRootViewController:[DBViewController new]];
     
     _tabBarController = [[UITabBarController alloc] init];
-    [_tabBarController setViewControllers:@[carpoolingNavigationBar, orderNavigationBar]];
+    [_tabBarController setViewControllers:@[carpoolingNavigationBar, orderNavigationBar, dbNavigationBar]];
     
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];

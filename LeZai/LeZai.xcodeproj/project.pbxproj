@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18278E4F19490197004F7561 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18278E4D19490197004F7561 /* RegisterViewController.m */; };
+		18278E5019490197004F7561 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18278E4E19490197004F7561 /* RegisterViewController.xib */; };
+		18278E5419491E8F004F7561 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18278E5219491E8F004F7561 /* UploadViewController.m */; };
+		18278E5519491E8F004F7561 /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18278E5319491E8F004F7561 /* UploadViewController.xib */; };
 		183F667619302C3600CF8177 /* DBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F667519302C3600CF8177 /* DBObject.m */; };
 		183F667A1930400800CF8177 /* DBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F66781930400800CF8177 /* DBDetailViewController.m */; };
 		183F667B1930400800CF8177 /* DBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183F66791930400800CF8177 /* DBDetailViewController.xib */; };
@@ -74,6 +78,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18278E4C19490197004F7561 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		18278E4D19490197004F7561 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		18278E4E19490197004F7561 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		18278E5119491E8F004F7561 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		18278E5219491E8F004F7561 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		18278E5319491E8F004F7561 /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
 		183F667419302C3600CF8177 /* DBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBObject.h; sourceTree = "<group>"; };
 		183F667519302C3600CF8177 /* DBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBObject.m; sourceTree = "<group>"; };
 		183F66771930400800CF8177 /* DBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDetailViewController.h; sourceTree = "<group>"; };
@@ -375,6 +385,12 @@
 				183F66771930400800CF8177 /* DBDetailViewController.h */,
 				183F66781930400800CF8177 /* DBDetailViewController.m */,
 				183F66791930400800CF8177 /* DBDetailViewController.xib */,
+				18278E4C19490197004F7561 /* RegisterViewController.h */,
+				18278E4D19490197004F7561 /* RegisterViewController.m */,
+				18278E4E19490197004F7561 /* RegisterViewController.xib */,
+				18278E5119491E8F004F7561 /* UploadViewController.h */,
+				18278E5219491E8F004F7561 /* UploadViewController.m */,
+				18278E5319491E8F004F7561 /* UploadViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -470,9 +486,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D4C91D18A5E0E800BFA2EE /* InfoPlist.strings in Resources */,
+				18278E5019490197004F7561 /* RegisterViewController.xib in Resources */,
 				183F667B1930400800CF8177 /* DBDetailViewController.xib in Resources */,
 				1894C19118AB502B00A2380A /* .gitignore in Resources */,
 				18D4C94618A5FB2400BFA2EE /* OrderViewController.xib in Resources */,
+				18278E5519491E8F004F7561 /* UploadViewController.xib in Resources */,
 				18EE519419342369004D333D /* PushConfig.plist in Resources */,
 				1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */,
 				18D4C94B18A5FB3F00BFA2EE /* CarpoolingViewController.xib in Resources */,
@@ -536,6 +554,7 @@
 				183F667A1930400800CF8177 /* DBDetailViewController.m in Sources */,
 				18B659A318B1FDFD00193D85 /* PCObject.m in Sources */,
 				1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */,
+				18278E4F19490197004F7561 /* RegisterViewController.m in Sources */,
 				1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */,
 				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,
 				18D4C92318A5E0E800BFA2EE /* AppDelegate.m in Sources */,
@@ -552,6 +571,7 @@
 				183F667619302C3600CF8177 /* DBObject.m in Sources */,
 				1894C19418AB502B00A2380A /* MBProgressHUD+Appearance.m in Sources */,
 				1858EF27192C799400BE9714 /* DBCell.m in Sources */,
+				18278E5419491E8F004F7561 /* UploadViewController.m in Sources */,
 				1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */,
 				18D4C91F18A5E0E800BFA2EE /* main.m in Sources */,
 				1858EF21192C478400BE9714 /* DBViewController.m in Sources */,

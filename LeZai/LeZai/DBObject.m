@@ -10,20 +10,23 @@
 
 @implementation DBObject
 
-- (DBObject *)createDBObjectWithDict:(NSDictionary *)dict
++ (DBObject *)createDBObjectWithDict:(NSDictionary *)dict
 {
     DBObject *obj = [[DBObject alloc] init];
-    obj.orderId = dict[@""];
-    obj.departure = dict[@""];
-    obj.destination = dict[@""];
-    obj.submitDate = dict[@""];
-    obj.getDate = dict[@""];
-    obj.finishDate = dict[@""];
-    obj.carSize = dict[@""];
+    obj.orderOid = dict[@"OrdOid"];
+    obj.oidNo = dict[@"OrdNo"];
+    obj.oid = dict[@"Oid"];
+    obj.departure = dict[@"PickSendAddress"];
+    obj.destination = dict[@"SendAddress"];
+    obj.submitDate = [self getCorrectDate:dict[@"Inserttime"]];
+    obj.finishDate = [self getCorrectDate:dict[@"PicSendTime"]];
+    obj.orderInfo = dict[@"DcjetCloneEntity"][@"OrderNameInfo"];
+    obj.price = dict[@"Price"];
+    obj.status = dict[@"DcjetCloneEntity"][@"State"];
     return obj;
 }
 
-- (NSArray *)createDBObjectsWithArray:(NSArray *)array
++ (NSArray *)createDBObjectsWithArray:(NSArray *)array
 {
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (int i = 0; i < [array count]; i ++) {
@@ -31,5 +34,16 @@
         [arr addObject:obj];
     }
     return arr;
+}
+
++ (NSString *)getCorrectDate:(NSString *)str
+{
+    NSString *timeStr = str;
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
+    return [dateFormatter stringFromDate:date];
 }
 @end
