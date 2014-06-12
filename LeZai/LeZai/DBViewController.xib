@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="accountTextField" destination="JAi-Oe-Vm7" id="F0e-p3-o8v"/>
                 <outlet property="dbTableView" destination="Xfa-BB-aMH" id="ACz-cg-CRR"/>
+                <outlet property="footView" destination="7na-eH-7ES" id="BD7-YY-dp6"/>
                 <outlet property="loginScroll" destination="NDo-GU-dIY" id="dgV-zQ-gyM"/>
                 <outlet property="passwordTextField" destination="0oy-h6-B4P" id="ih6-Xf-fzd"/>
                 <outlet property="segmentedControl" destination="TKh-Jk-vSE" id="cwc-Ni-tO6"/>
@@ -102,5 +103,24 @@
                 <action selector="secondSegValueChanged:" destination="-1" eventType="valueChanged" id="lwB-59-bOc"/>
             </connections>
         </segmentedControl>
+        <view contentMode="scaleToFill" id="7na-eH-7ES">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="diR-5h-mfs">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="查看更多">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loadMoreButtonClick:" destination="-1" eventType="touchUpInside" id="JlV-IE-91B"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+        </view>
     </objects>
 </document>

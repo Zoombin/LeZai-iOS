@@ -247,7 +247,10 @@
     }];
 }
 
-- (void)getOrderList:(int)type withBlock:(void (^)(NSArray *result, NSError *error))block
+- (void)getOrderList:(int)type
+                page:(int)page
+               count:(int)count
+           withBlock:(void (^)(NSArray *result, NSError *error))block
 {
     //    GetInterCityListPick   等待提货
     //    GetInterCityListIng    等待确认
@@ -257,7 +260,7 @@
     
     NSArray *serviceName = @[@"GetInterCityListIng", @"GetInterCityListPick" ,@"GetInterCityListSend", @"GetInterCityListCommit", @"GetInterCityListBack"];
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"ClientMode\":\"Ios\",\"StartRows\":\"1\",\"RecordRows\":\"10\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken]];
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"ClientMode\":\"Ios\",\"StartRows\":\"%d\",\"RecordRows\":\"%d\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken], page, count];
     NSDictionary *params = @{@"ServiceName": serviceName[type - 1], @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -276,7 +279,8 @@
     }];
 }
 
-- (void)cancelOrder:(NSString *)message withBlock:(void (^)(NSDictionary *result, NSError *error))block
+- (void)cancelOrder:(NSString *)message
+          withBlock:(void (^)(NSDictionary *result, NSError *error))block
 {
 //    512字符
     UIDevice *device = [UIDevice currentDevice];//创建设备对象

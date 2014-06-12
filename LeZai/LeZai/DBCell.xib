@@ -96,6 +96,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="destinationLabel" destination="eb7-m6-xSX" id="bht-qs-dSf"/>
                 <outlet property="finishDateLabel" destination="A3A-YV-fPB" id="f9R-9s-n4x"/>

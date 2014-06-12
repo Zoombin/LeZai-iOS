@@ -34,6 +34,7 @@
                       count:(int)count
                   withBlock:(void(^)(NSArray *result))block;
 
+//订单列表
 - (void)orderListPage:(int)page
                 count:(int)count
            WithBlock:(void(^)(NSArray *result, NSError *error))block;
@@ -57,11 +58,15 @@
        withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
 //已竞单
-- (void)getOrderList:(int)type withBlock:(void (^)(NSArray *result, NSError *error))block;
+- (void)getOrderList:(int)type
+                page:(int)page
+               count:(int)count
+           withBlock:(void (^)(NSArray *result, NSError *error))block;
 
 //撤销
 - (void)cancelOrder:(NSString *)message withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
+//收货和提货
 - (void)uploadImageWithType:(BOOL)isSendGoods orderId:(NSString *)orderId image:(UIImage *)image orderNo:(NSString *)orderNO withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
 @end

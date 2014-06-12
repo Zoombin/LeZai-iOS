@@ -20,6 +20,9 @@
 
 @implementation DBViewController {
     NSArray *resultInfo;
+    int page;
+    int count;
+    int type;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -28,6 +31,9 @@
     if (self) {
         // Custom initialization
         self.title = @"短驳订单";
+        page = 1;
+        count = 10;
+        type = ORDER_PICK;
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"order_search_hl"] withFinishedUnselectedImage:[UIImage imageNamed:@"order_search"]];
     }
     return self;
@@ -59,8 +65,10 @@
 
 - (IBAction)loginButtonClick:(id)sender
 {
- [[LZService shared] loginOrRegister:_accountTextField.text password:_passwordTextField.text type:1 withBlock:^(NSDictionary *result, NSError *error) {
-     NSLog(@"%@", result);
+ [[LZService shared] loginOrRegister:_accountTextField.text
+                            password:_passwordTextField.text
+                                type:1
+                           withBlock:^(NSDictionary *result, NSError *error) {
      if (result && [result isKindOfClass:[NSDictionary class]]) {
          if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
              [[LZService shared] saveUserToken:result[@"Token"]];
@@ -73,10 +81,16 @@
 - (void)loadAllOrderList
 {
     [self displayHUD:@"加载中..."];
-    [[LZService shared] orderListPage:1 count:10 WithBlock:^(NSArray *result, NSError *error) {
-        NSLog(@"%@", result);
+    [[LZService shared] orderListPage:page
+                                count:count
+                            WithBlock:^(NSArray *result, NSError *error) {
         [self hideHUD:YES];
         if ([result count] > 0) {
+            if ([result count] < count) {
+                [_dbTableView setTableFooterView:nil];
+            } else {
+                [_dbTableView setTableFooterView:_footView];
+            }
             resultInfo = [DBObject createDBObjectsWithArray:result];
             [_dbTableView reloadData];
         } else {
@@ -89,10 +103,17 @@
 - (void)loadOrderingList
 {
    [self displayHUD:@"加载中..."];
-   [[LZService shared] getOrderList:ORDER_ORDERING withBlock:^(NSArray *result, NSError *error) {
-       NSLog(@"%@", result);
+   [[LZService shared] getOrderList:ORDER_ORDERING
+                               page:1
+                              count:10
+                          withBlock:^(NSArray *result, NSError *error) {
        [self hideHUD:YES];
        if ([result count] > 0) {
+           if ([result count] < count) {
+               [_dbTableView setTableFooterView:nil];
+           } else {
+               [_dbTableView setTableFooterView:_footView];
+           }
            resultInfo = [DBObject createDBObjectsWithArray:result];
            [_dbTableView reloadData];
        } else {
@@ -105,10 +126,18 @@
 - (void)loadOrderedList
 {
     [self displayHUD:@"加载中..."];
-    [[LZService shared] getOrderList:ORDER_PICK withBlock:^(NSArray *result, NSError *error) {
+    [[LZService shared] getOrderList:type
+                                page:1
+                               count:10
+                           withBlock:^(NSArray *result, NSError *error) {
         NSLog(@"%@", result);
         [self hideHUD:YES];
         if ([result count] > 0) {
+            if ([result count] < count) {
+                [_dbTableView setTableFooterView:nil];
+            } else {
+                [_dbTableView setTableFooterView:_footView];
+            }
             resultInfo = [DBObject createDBObjectsWithArray:result];
             [_dbTableView reloadData];
         } else {
@@ -129,6 +158,17 @@
     [self hidenAllKeyboard];
     _loginScroll.hidden = YES;
     [self loadAllOrderList];
+}
+
+- (IBAction)loadMoreButtonClick:(id)sender
+{
+    if (_segmentedControl.selectedSegmentIndex == 0) {
+        [self loadAllOrderList];
+    } else if (_segmentedControl.selectedSegmentIndex == 1) {
+        [self loadOrderingList];
+    } else if (_segmentedControl.selectedSegmentIndex == 2) {
+        [self loadOrderedList];
+    }
 }
 
 
@@ -166,6 +206,7 @@
 
 - (IBAction)firstSegValueChanged:(id)sender
 {
+    page = 1;
     UISegmentedControl *control = (UISegmentedControl *)sender;
     [_dbTableView setTableHeaderView:nil];
     if (control.selectedSegmentIndex == 0) {
@@ -183,8 +224,8 @@
 
 - (IBAction)secondSegValueChanged:(id)sender
 {
+    page = 1;
     UISegmentedControl *control = (UISegmentedControl *)sender;
-    int type = 0;
     
     if (control.selectedSegmentIndex == 0) {
         NSLog(@"1");
@@ -199,18 +240,7 @@
         NSLog(@"4");
         type = ORDER_CANCEL;
     }
-    [self displayHUD:@"加载中..."];
-    [[LZService shared] getOrderList:type withBlock:^(NSArray *result, NSError *error) {
-        NSLog(@"%@", result);
-        [self hideHUD:YES];
-        if ([result count] > 0) {
-            resultInfo = [DBObject createDBObjectsWithArray:result];
-            [_dbTableView reloadData];
-        } else {
-            resultInfo = nil;
-            [_dbTableView reloadData];
-        }
-    }];
+    [self loadOrderedList];
 }
 
 @end
