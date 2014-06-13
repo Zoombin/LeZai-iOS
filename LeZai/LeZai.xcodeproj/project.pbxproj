@@ -227,6 +227,9 @@
 		183A0A8E194A974F001C819F /* User */ = {
 			isa = PBXGroup;
 			children = (
+				183A0A84194A886D001C819F /* SelectRoleViewController.h */,
+				183A0A85194A886D001C819F /* SelectRoleViewController.m */,
+				183A0A86194A886D001C819F /* SelectRoleViewController.xib */,
 				18278E4C19490197004F7561 /* RegisterViewController.h */,
 				18278E4D19490197004F7561 /* RegisterViewController.m */,
 				18278E4E19490197004F7561 /* RegisterViewController.xib */,
@@ -436,9 +439,6 @@
 				18278E5119491E8F004F7561 /* UploadViewController.h */,
 				18278E5219491E8F004F7561 /* UploadViewController.m */,
 				18278E5319491E8F004F7561 /* UploadViewController.xib */,
-				183A0A84194A886D001C819F /* SelectRoleViewController.h */,
-				183A0A85194A886D001C819F /* SelectRoleViewController.m */,
-				183A0A86194A886D001C819F /* SelectRoleViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";

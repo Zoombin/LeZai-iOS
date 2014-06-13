@@ -13,8 +13,10 @@
                 <outlet property="goodInfoTextView" destination="3Tx-ZZ-wCC" id="NmF-Gk-npK"/>
                 <outlet property="orderButton" destination="jHX-hf-NCg" id="s5U-OT-SMW"/>
                 <outlet property="orderPriceLabel" destination="cCk-py-B6r" id="EHH-vW-Kax"/>
+                <outlet property="orderView" destination="oA8-2X-FLH" id="G81-LQ-2b3"/>
                 <outlet property="pickButton" destination="agY-jy-yza" id="oFJ-uX-iyS"/>
                 <outlet property="priceLabel" destination="AYK-hH-aCx" id="TXH-6l-Qpn"/>
+                <outlet property="selectPriceLabel" destination="kKa-f9-DDT" id="aH1-R2-8mw"/>
                 <outlet property="sendButton" destination="Vqf-oO-zjI" id="EVG-kd-JeP"/>
                 <outlet property="startLocationLabel" destination="57I-uI-HRv" id="rZ0-cS-Sf5"/>
                 <outlet property="statusLabel" destination="ADp-TI-p5W" id="zpd-N5-dP1"/>
@@ -127,10 +129,11 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jHX-hf-NCg">
-                            <rect key="frame" x="233" y="112" width="54" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jHX-hf-NCg">
+                            <rect key="frame" x="233" y="112" width="67" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="抢单"/>
                             <state key="disabled">
@@ -140,10 +143,11 @@
                                 <action selector="orderButtonClick:" destination="-1" eventType="touchUpInside" id="bDf-NW-ce7"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="agY-jy-yza">
-                            <rect key="frame" x="23" y="294" width="80" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="agY-jy-yza">
+                            <rect key="frame" x="22" y="343" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="确定提货"/>
                             <state key="disabled">
@@ -153,10 +157,11 @@
                                 <action selector="pickButtonClick:" destination="-1" eventType="touchUpInside" id="H2d-Mi-VHH"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vqf-oO-zjI">
-                            <rect key="frame" x="123" y="294" width="80" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vqf-oO-zjI">
+                            <rect key="frame" x="122" y="343" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="确定收货"/>
                             <state key="disabled">
@@ -166,10 +171,11 @@
                                 <action selector="sendButtonClick:" destination="-1" eventType="touchUpInside" id="zpp-OU-sLX"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AwE-if-t4A">
-                            <rect key="frame" x="220" y="294" width="80" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AwE-if-t4A">
+                            <rect key="frame" x="219" y="343" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="撤销订单"/>
                             <state key="disabled">
@@ -180,7 +186,7 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="3Tx-ZZ-wCC">
-                            <rect key="frame" x="9" y="174" width="303" height="92"/>
+                            <rect key="frame" x="9" y="186" width="303" height="140"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -194,6 +200,42 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view hidden="YES" contentMode="scaleToFill" id="oA8-2X-FLH">
+                            <rect key="frame" x="198" y="150" width="102" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g36-Hh-imK">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.97254901959999995" green="0.41960784309999999" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="-">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="reduceButtonClick:" destination="-1" eventType="touchUpInside" id="j7m-h7-cUw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OIM-Vo-OXJ">
+                                    <rect key="frame" x="72" y="0.0" width="30" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.2901960784" green="0.32549019610000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="+">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addButtonClick:" destination="-1" eventType="touchUpInside" id="8x1-hm-TFs"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kKa-f9-DDT">
+                                    <rect key="frame" x="30" y="0.0" width="42" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.62839113828085436" green="0.94901960780000005" blue="0.90924342136404013" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>

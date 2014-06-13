@@ -11,6 +11,7 @@
 #import "UIViewController+HUD.h"
 #import "DBObject.h"
 #import "UploadViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DBDetailViewController ()
 
@@ -18,6 +19,7 @@
 
 @implementation DBDetailViewController {
     DBObject *dbInfo;
+    int price;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        price = 0;
     }
     return self;
 }
@@ -32,6 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_goodInfoTextView.layer setCornerRadius:7.0];
+    [_goodInfoTextView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [_goodInfoTextView.layer setBorderWidth:.5];
+    
     self.title = @"订单详情";
     // Do any additional setup after loading the view from its nib.
 }
@@ -87,8 +94,10 @@
             _pickButton.hidden = YES;
             _sendButton.hidden = YES;
             _cancelButton.hidden = YES;
+            _orderView.hidden = YES;
             if ([dbInfo.status isEqualToString:@"B"]) {
                 _orderButton.hidden = NO;
+                _orderView.hidden = NO;
             } else if([dbInfo.status isEqualToString:@"C"] && ![_listState isEqualToString:@"E"]) {
                 _pickButton.hidden = NO;
                 _cancelButton.hidden = NO;
@@ -103,38 +112,51 @@
 
 - (void)orderButtonClick:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入金额"
-                                                        message:nil
-                                                       delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"确定", nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.cancelButtonIndex != buttonIndex) {
-        NSString *price = [alertView textFieldAtIndex:0].text;
-        if ([price length] > 0) {
-            [[LZService shared] addOrder:dbInfo.oid price:price withBlock:^(NSDictionary *result, NSError *error) {
-                NSLog(@"%@", result);
-                if ([result[@"OrdState"] integerValue] == 1) {
-                    NSLog(@"成功");
-                    [self displayHUDTitle:nil message:@"抢单成功!"];
-                } else if ([result[@"OrdState"] integerValue] == 0){
-                    [self displayHUDTitle:nil message:@"抢单失败!"];
-                } else if ([result[@"OrdState"] integerValue] == 2){
-                    [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
-                } else {
-                    [self displayHUDTitle:nil message:@"抢单失败!"];
-                }
-            }];
+    [[LZService shared] addOrder:dbInfo.oid price:[NSString stringWithFormat:@"%d", price] withBlock:^(NSDictionary *result, NSError *error) {
+        NSLog(@"%@", result);
+        if ([result[@"OrdState"] integerValue] == 1) {
+            NSLog(@"成功");
+            [self displayHUDTitle:nil message:@"抢单成功!"];
+        } else if ([result[@"OrdState"] integerValue] == 0){
+            [self displayHUDTitle:nil message:@"抢单失败!"];
+        } else if ([result[@"OrdState"] integerValue] == 2){
+            [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
         } else {
-            [self displayHUDTitle:nil message:@"请输入金额"];
+            [self displayHUDTitle:nil message:@"抢单失败!"];
         }
-    }
+    }];
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入金额"
+//                                                        message:nil
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"取消"
+//                                              otherButtonTitles:@"确定", nil];
+//    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    [alertView show];
 }
+//
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (alertView.cancelButtonIndex != buttonIndex) {
+//        NSString *price = [alertView textFieldAtIndex:0].text;
+//        if ([price length] > 0) {
+//            [[LZService shared] addOrder:dbInfo.oid price:price withBlock:^(NSDictionary *result, NSError *error) {
+//                NSLog(@"%@", result);
+//                if ([result[@"OrdState"] integerValue] == 1) {
+//                    NSLog(@"成功");
+//                    [self displayHUDTitle:nil message:@"抢单成功!"];
+//                } else if ([result[@"OrdState"] integerValue] == 0){
+//                    [self displayHUDTitle:nil message:@"抢单失败!"];
+//                } else if ([result[@"OrdState"] integerValue] == 2){
+//                    [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
+//                } else {
+//                    [self displayHUDTitle:nil message:@"抢单失败!"];
+//                }
+//            }];
+//        } else {
+//            [self displayHUDTitle:nil message:@"请输入金额"];
+//        }
+//    }
+//}
 
 - (IBAction)pickButtonClick:(id)sender
 {
@@ -161,6 +183,22 @@
     viewCtrl.oid = dbInfo.oid;
     [self.navigationController pushViewController:viewCtrl animated:YES];
 }
+
+- (IBAction)addButtonClick:(id)sender
+{
+    price = price + 5;
+    _selectPriceLabel.text = [NSString stringWithFormat:@"%d", price];
+}
+
+- (IBAction)reduceButtonClick:(id)sender
+{
+    price = price - 5;
+    if (price < 0) {
+        price = 0;
+    }
+    _selectPriceLabel.text = [NSString stringWithFormat:@"%d", price];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

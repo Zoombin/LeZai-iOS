@@ -28,12 +28,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_imageButton setHidden:YES];
+    [_imageView setHidden:YES];
     [_messageTextView setHidden:YES];
     if (_type == PICK_ORDER) {
         self.title = @"确定提货";
+        [_imageView setHidden:NO];
         [_imageButton setHidden:NO];
     } else if (_type == SEND_ORDER) {
+        [_imageView setHidden:NO];
         [_imageButton setHidden:NO];
         self.title = @"确定收货";
     } else {
@@ -136,7 +140,7 @@
 {
 	UIImage* image = info[UIImagePickerControllerOriginalImage];
     _image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.3)];
-    [_imageButton setImage:_image forState:UIControlStateNormal];
+    [_imageView setImage:_image];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

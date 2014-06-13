@@ -25,10 +25,15 @@
 @property (nonatomic, weak) IBOutlet UILabel *orderPriceLabel;
 @property (nonatomic, strong) NSString *orderPrice;
 @property (nonatomic, strong) NSString *listState;
+@property (nonatomic, weak) IBOutlet UIView *orderView;
+@property (nonatomic, weak) IBOutlet UILabel *selectPriceLabel;
+
 - (IBAction)orderButtonClick:(id)sender;
 - (IBAction)pickButtonClick:(id)sender;
 - (IBAction)sendButtonClick:(id)sender;
 - (IBAction)cancelButtonClick:(id)sender;
+- (IBAction)addButtonClick:(id)sender;
+- (IBAction)reduceButtonClick:(id)sender;
 @end
 
 

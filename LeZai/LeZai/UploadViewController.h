@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *oid;
 @property (nonatomic, strong) NSString *orderNo;
 @property (nonatomic, weak) IBOutlet UIButton *imageButton;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UITextView *messageTextView;
 @property (nonatomic, strong) UIImage *image;
 - (IBAction)uploadImageButtonClick:(id)sender;
