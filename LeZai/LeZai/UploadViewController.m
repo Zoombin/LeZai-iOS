@@ -44,7 +44,14 @@
         [_messageTextView setHidden:NO];
         self.title = @"撤销订单";
     }
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
+    [self.view addGestureRecognizer:gesture];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)hidenKeyboard
+{
+    [_messageTextView resignFirstResponder];
 }
 
 - (IBAction)uploadImageButtonClick:(id)sender

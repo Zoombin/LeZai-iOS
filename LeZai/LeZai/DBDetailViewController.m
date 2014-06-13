@@ -113,6 +113,7 @@
 - (void)orderButtonClick:(id)sender
 {
     [[LZService shared] addOrder:dbInfo.oid price:[NSString stringWithFormat:@"%d", price] withBlock:^(NSDictionary *result, NSError *error) {
+        NSLog(@"%d", price);
         NSLog(@"%@", result);
         if ([result[@"OrdState"] integerValue] == 1) {
             NSLog(@"成功");
@@ -125,38 +126,7 @@
             [self displayHUDTitle:nil message:@"抢单失败!"];
         }
     }];
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入金额"
-//                                                        message:nil
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"取消"
-//                                              otherButtonTitles:@"确定", nil];
-//    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    [alertView show];
 }
-//
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if (alertView.cancelButtonIndex != buttonIndex) {
-//        NSString *price = [alertView textFieldAtIndex:0].text;
-//        if ([price length] > 0) {
-//            [[LZService shared] addOrder:dbInfo.oid price:price withBlock:^(NSDictionary *result, NSError *error) {
-//                NSLog(@"%@", result);
-//                if ([result[@"OrdState"] integerValue] == 1) {
-//                    NSLog(@"成功");
-//                    [self displayHUDTitle:nil message:@"抢单成功!"];
-//                } else if ([result[@"OrdState"] integerValue] == 0){
-//                    [self displayHUDTitle:nil message:@"抢单失败!"];
-//                } else if ([result[@"OrdState"] integerValue] == 2){
-//                    [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
-//                } else {
-//                    [self displayHUDTitle:nil message:@"抢单失败!"];
-//                }
-//            }];
-//        } else {
-//            [self displayHUDTitle:nil message:@"请输入金额"];
-//        }
-//    }
-//}
 
 - (IBAction)pickButtonClick:(id)sender
 {
