@@ -46,7 +46,6 @@
 {
     [self displayHUD:@"加载中..."];
     [[LZService shared] orderInfo:_orderId withBlock:^(NSArray *result, NSError *error) {
-        NSLog(@"%@", result);
         [self hideHUD:YES];
         if ([result count] > 0) {
             dbInfo = [DBObject createDBObjectsWithArray:result][0];
@@ -56,6 +55,10 @@
             _priceLabel.text = [NSString stringWithFormat:@"%@", dbInfo.price];
             _submitLabel.text = dbInfo.submitDate;
             _statusLabel.text = dbInfo.statusName;
+            if (_orderPrice) {
+                [_orderPriceLabel setHidden:NO];
+                _orderPriceLabel.text = [NSString stringWithFormat:@"抢单金额:  %@", _orderPrice];
+            }
             NSArray *goodsArray = [dbInfo.orderInfo componentsSeparatedByString:@"|"];
             NSMutableString *goodsString = [@"" mutableCopy];
             for (int i = 0; i < [goodsArray count]; i++) {
@@ -68,7 +71,7 @@
                         NSString *typeName = [NSString stringWithFormat:@"包装:%@ ", values[j]];
                         [goodsString appendString:typeName];
                     } else if (j == 2) {
-                        NSString *timesName = [NSString stringWithFormat:@"件数:%@ ", values[j]];
+                        NSString *timesName = [NSString stringWithFormat:@"\n件数:%@ ", values[j]];
                         [goodsString appendString:timesName];
                     } else if (j == 3) {
                         NSString *weightName = [NSString stringWithFormat:@"毛重:%@ ", values[j]];
@@ -80,22 +83,18 @@
                 }
             }
             [_goodInfoTextView setText:goodsString];
-            _orderButton.enabled = NO;
-            _pickButton.enabled = NO;
-            _sendButton.enabled = NO;
-            _cancelButton.enabled = NO;
+            _orderButton.hidden = YES;
+            _pickButton.hidden = YES;
+            _sendButton.hidden = YES;
+            _cancelButton.hidden = YES;
             if ([dbInfo.status isEqualToString:@"B"]) {
-                NSLog(@"只有抢单可以点");
-                _orderButton.enabled = YES;
-            } else if([dbInfo.status isEqualToString:@"C"]) {
-                NSLog(@"提货和撤销可以点");
-                _pickButton.enabled = YES;
-                _cancelButton.enabled = YES;
+                _orderButton.hidden = NO;
+            } else if([dbInfo.status isEqualToString:@"C"] && ![_listState isEqualToString:@"E"]) {
+                _pickButton.hidden = NO;
+                _cancelButton.hidden = NO;
             } else if([dbInfo.status isEqualToString:@"E"]) {
-                NSLog(@"确定收货可以点");
-                _sendButton.enabled = YES;
+                _sendButton.hidden = NO;
             } else if([dbInfo.status isEqualToString:@"F"]) {
-                NSLog(@"全部不能点");
             }
         }
         
@@ -126,7 +125,7 @@
                 } else if ([result[@"OrdState"] integerValue] == 0){
                     [self displayHUDTitle:nil message:@"抢单失败!"];
                 } else if ([result[@"OrdState"] integerValue] == 2){
-                    [self displayHUDTitle:nil message:@"同样数据已竞单!"];
+                    [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
                 } else {
                     [self displayHUDTitle:nil message:@"抢单失败!"];
                 }
@@ -159,6 +158,7 @@
 {
     UploadViewController *viewCtrl = [[UploadViewController alloc] initWithNibName:@"UploadViewController" bundle:nil];
     viewCtrl.type = CANCEL_ORDER;
+    viewCtrl.oid = dbInfo.oid;
     [self.navigationController pushViewController:viewCtrl animated:YES];
 }
 - (void)didReceiveMemoryWarning

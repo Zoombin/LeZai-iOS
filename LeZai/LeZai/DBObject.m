@@ -23,12 +23,14 @@
     obj.orderInfo = dict[@"DcjetCloneEntity"][@"OrderNameInfo"];
     obj.price = dict[@"Price"];
     obj.status = dict[@"DcjetCloneEntity"][@"State"];
+    obj.orderPrice = dict[@"ListPrice"];
+    obj.listState = dict[@"ListState"];
     if ([obj.status isEqualToString:@"B"]) {
         obj.statusName = @"等待接单";
     } else if ([obj.status isEqualToString:@"C"]) {
         obj.statusName = @"接单成功";
     } else if ([obj.status isEqualToString:@"E"]) {
-        obj.statusName = @"确定提货";
+        obj.statusName = @"已提货";
     } else if ([obj.status isEqualToString:@"F"]) {
         obj.statusName = @"订单完成";
     }
@@ -51,7 +53,7 @@
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
     return [dateFormatter stringFromDate:date];
 }

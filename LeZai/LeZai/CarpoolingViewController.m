@@ -11,6 +11,7 @@
 #import "LZService.h"
 #import "UIViewController+HUD.h"
 #import "NSString+ZBUtilites.h"
+#import "LZService.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define CORNER_RADIUS 4
@@ -33,7 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.navigationController.navigationBar.translucent = NO;
     [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
     [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
     [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
@@ -46,14 +46,18 @@
     self.navigationItem.rightBarButtonItem = rightButton;
     
     NSInteger offset = 206;
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//        offset = 206;
-//    }
     [_datePickerView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) - offset, 320, 206)];
     [self.view addSubview:_datePickerView];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
     [_scrollView addGestureRecognizer:tapGesture];
+    
+    if ([[LZService shared] startLocation]) {
+        _startLocationTextField.text = [[LZService shared] startLocation];
+    }
+    if ([[LZService shared] endLocation]) {
+        _endLocationTextField.text = [[LZService shared] endLocation];
+    }
 }
 
 - (void)hideKeyBoard
@@ -94,6 +98,12 @@
 - (void)search
 {
     [self hideKeyBoard];
+    if ([_startLocationTextField.text length] > 0) {
+        [[LZService shared] saveStartLocation:_startLocationTextField.text];
+    }
+    if ([_endLocationTextField.text length] > 0) {
+        [[LZService shared] saveEndLocation:_endLocationTextField.text];
+    }
     ResultViewController *resultViewController = [[ResultViewController alloc] init];
     resultViewController.beginCity = _startLocationTextField.text;
     resultViewController.endCity = _endLocationTextField.text;

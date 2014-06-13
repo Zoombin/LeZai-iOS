@@ -7,12 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DBViewController">
             <connections>
-                <outlet property="accountTextField" destination="JAi-Oe-Vm7" id="F0e-p3-o8v"/>
                 <outlet property="dbTableView" destination="Xfa-BB-aMH" id="ACz-cg-CRR"/>
                 <outlet property="footView" destination="7na-eH-7ES" id="BD7-YY-dp6"/>
-                <outlet property="loginScroll" destination="NDo-GU-dIY" id="dgV-zQ-gyM"/>
-                <outlet property="passwordTextField" destination="0oy-h6-B4P" id="ih6-Xf-fzd"/>
-                <outlet property="segmentedControl" destination="TKh-Jk-vSE" id="cwc-Ni-tO6"/>
+                <outlet property="segmentedControl2" destination="TKh-Jk-vSE" id="bng-ya-FfG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,20 +22,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="z69-xk-zyI">
-                            <rect key="frame" x="69" y="0.0" width="183" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="所有订单"/>
-                                <segment title="抢单中"/>
-                                <segment title="抢单成功"/>
-                            </segments>
-                            <connections>
-                                <action selector="firstSegValueChanged:" destination="-1" eventType="valueChanged" id="X1C-Gm-hYX"/>
-                            </connections>
-                        </segmentedControl>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xfa-BB-aMH">
-                            <rect key="frame" x="0.0" y="30" width="320" height="518"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
@@ -48,51 +33,6 @@
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                </scrollView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="NDo-GU-dIY">
-                    <rect key="frame" x="0.0" y="22" width="320" height="504"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" id="JAi-Oe-Vm7">
-                            <rect key="frame" x="60" y="98" width="200" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" id="0oy-h6-B4P">
-                            <rect key="frame" x="60" y="142" width="200" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gkv-Tn-p3g">
-                            <rect key="frame" x="60" y="193" width="67" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="登录">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="loginButtonClick:" destination="-1" eventType="touchUpInside" id="Zf1-w6-rwW"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SWE-v3-6GP">
-                            <rect key="frame" x="193" y="193" width="67" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.99215686270000003" green="0.46666666670000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="注册">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="registerButtonClick:" destination="-1" eventType="touchUpInside" id="bVq-JC-yrZ"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

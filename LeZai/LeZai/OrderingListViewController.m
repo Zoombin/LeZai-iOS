@@ -1,28 +1,26 @@
 //
-//  DBViewController.m
+//  OrderingListViewController.m
 //  LeZai
 //
-//  Created by 颜超 on 14-5-21.
+//  Created by 颜超 on 14-6-13.
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
-#import "DBViewController.h"
-#import "DBCell.h"
-#import "LZService.h"
+#import "OrderingListViewController.h"
 #import "DBObject.h"
-#import "RegisterViewController.h"
 #import "DBDetailViewController.h"
-#import "UIViewController+Hud.h"
+#import "UIViewController+HUD.h"
+#import "LZService.h"
+#import "DBCell.h"
 
-@interface DBViewController ()
+@interface OrderingListViewController ()
 
 @end
 
-@implementation DBViewController {
+@implementation OrderingListViewController {
     NSMutableArray *resultInfo;
     int page;
     int count;
-    int type;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,11 +28,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"抢单成功";
+        self.title = @"抢单中";
+        resultInfo = [NSMutableArray array];
         page = 1;
         count = 10;
-        type = ORDER_PICK;
-        resultInfo = [NSMutableArray array];
     }
     return self;
 }
@@ -42,8 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_dbTableView setTableHeaderView:_segmentedControl2];
-    [_dbTableView setFrame:CGRectMake(0, 0, 320, 548 - 44)];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,7 +48,37 @@
     page = 1;
     [resultInfo removeAllObjects];
     [_dbTableView reloadData];
-    [self loadOrderedList];
+    [self loadOrderingList];
+}
+
+- (void)loadOrderingList
+{
+    [self displayHUD:@"加载中..."];
+    [[LZService shared] getOrderList:1
+                                page:page
+                               count:count
+                           withBlock:^(NSArray *result, NSError *error) {
+                                [self hideHUD:YES];
+                                if ([result count] > 0) {
+                                    if ([result count] < count) {
+                                        [_dbTableView setTableFooterView:nil];
+                                    } else {
+                                        [_dbTableView setTableFooterView:_footView];
+                                    }
+                                    [resultInfo addObjectsFromArray:[DBObject createDBObjectsWithArray:result]];
+                                    [_dbTableView reloadData];
+                                } else {
+                                    [resultInfo removeAllObjects];
+                                    [_dbTableView reloadData];
+                                }
+                            }];
+}
+
+- (IBAction)loadMoreButtonClick:(id)sender
+{
+    page++;
+    count++;
+    [self loadOrderingList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,36 +86,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)loadOrderedList
-{
-    [self displayHUD:@"加载中..."];
-    [[LZService shared] getOrderList:type
-                                page:page
-                               count:count
-                           withBlock:^(NSArray *result, NSError *error) {
-                               [self hideHUD:YES];
-                               if ([result count] > 0) {
-                                   if ([result count] < count) {
-                                       [_dbTableView setTableFooterView:nil];
-                                   } else {
-                                       [_dbTableView setTableFooterView:_footView];
-                                   }
-                                   [resultInfo addObjectsFromArray:[DBObject createDBObjectsWithArray:result]];
-                                   [_dbTableView reloadData];
-                               } else {
-                                   [resultInfo removeAllObjects];
-                                   [_dbTableView reloadData];
-                               }
-                           }];
-}
-
-- (IBAction)loadMoreButtonClick:(id)sender
-{
-    page ++;
-    [self loadOrderedList];
-}
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -123,26 +119,6 @@
     viewCtrl.hidesBottomBarWhenPushed = YES;
     viewCtrl.listState = object.listState;
     [self.navigationController pushViewController:viewCtrl animated:YES];
-}
-
-- (IBAction)secondSegValueChanged:(id)sender
-{
-    page = 1;
-    [resultInfo removeAllObjects];
-    [_dbTableView reloadData];
-    [_dbTableView setTableFooterView:nil];
-    UISegmentedControl *control = (UISegmentedControl *)sender;
-    
-    if (control.selectedSegmentIndex == 0) {
-        type = ORDER_PICK;
-    } else if (control.selectedSegmentIndex == 1) {
-        type = ORDER_SEND;
-    } else if (control.selectedSegmentIndex == 2) {
-        type = ORDER_FINISH;
-    }  else {
-        type = ORDER_CANCEL;
-    }
-    [self loadOrderedList];
 }
 
 @end

@@ -16,10 +16,22 @@
 #define ORDER_FINISH 4
 #define ORDER_CANCEL 5
 
+#define I_AM_DRIVER @"driver"
+#define I_AM_CUSTOMER @"custom"
+#define ROLE_KEY    @"role"
+#define START_LOCATION_KEY @"startlocation"
+#define END_LOCATION_KEY @"endlocation"
+
 @interface LZService : AFHTTPClient
 + (instancetype)shared;
 - (NSString *)userToken;
 - (void)saveUserToken:(NSString *)token;
+- (void)saveRole:(NSString *)role;
+- (NSString *)userRole;
+- (void)saveStartLocation:(NSString *)start;
+- (void)saveEndLocation:(NSString *)end;
+- (NSString *)startLocation;
+- (NSString *)endLocation;
 
 //订单查询
 - (void)searchOrderByOrderNO:(NSString *)orederNo
@@ -64,7 +76,9 @@
            withBlock:(void (^)(NSArray *result, NSError *error))block;
 
 //撤销
-- (void)cancelOrder:(NSString *)message withBlock:(void (^)(NSDictionary *result, NSError *error))block;
+- (void)cancelOrder:(NSString *)message
+            orderId:(NSString *)oid
+          withBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
 //收货和提货
 - (void)uploadImageWithType:(BOOL)isSendGoods orderId:(NSString *)orderId image:(UIImage *)image orderNo:(NSString *)orderNO withBlock:(void (^)(NSDictionary *result, NSError *error))block;

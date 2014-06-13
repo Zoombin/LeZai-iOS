@@ -11,8 +11,8 @@
 #import "AFJSONRequestOperation.h"
 #import "SBJson.h"
 
-#define BASE_URL @"http://www.lezaiwang.com/web/httphandle/"
-//#define BASE_URL @"http://192.168.11.125/Cargo.Portal/web/httphandle/"
+//#define BASE_URL @"http://www.lezaiwang.com/web/httphandle/"
+#define BASE_URL @"http://192.168.11.125/Cargo.Portal/web/httphandle/"
 
 @implementation LZService
 +(instancetype)shared
@@ -37,6 +37,41 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)saveRole:(NSString *)role
+{
+    [[NSUserDefaults standardUserDefaults] setObject:role forKey:ROLE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)userRole
+{
+    NSString *role = [[NSUserDefaults standardUserDefaults] objectForKey:ROLE_KEY];
+    return role;
+}
+
+- (void)saveStartLocation:(NSString *)start
+{
+    [[NSUserDefaults standardUserDefaults] setObject:start forKey:START_LOCATION_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)saveEndLocation:(NSString *)end
+{
+    [[NSUserDefaults standardUserDefaults] setObject:end forKey:END_LOCATION_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)startLocation
+{
+    NSString *startLocation = [[NSUserDefaults standardUserDefaults] objectForKey:START_LOCATION_KEY];
+    return startLocation;
+}
+
+- (NSString *)endLocation
+{
+    NSString *endLocation = [[NSUserDefaults standardUserDefaults] objectForKey:END_LOCATION_KEY];
+    return endLocation;
+}
 
 - (id)jsonValue:(id)JSON
 {
@@ -106,7 +141,6 @@
         sendDate = @"";
     }
     NSString *paramsString = [NSString stringWithFormat:@"{\"Token\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserName\":null,\"Password\":null,\"ClientMode\":\"Ios\",\"OrderNo\":null,\"BeginCity\":\"%@\",\"EndCity\":\"%@\",\"SendDate\":\"%@\",\"OrderBy\":\"%@\",\"StartRows\":\"%d\",\"RecordRows\":\"%d\"}",[[device identifierForVendor] UUIDString],sCity,eCity,sendDate,sort,page,count];
-    NSLog(@"%@", paramsString);
     NSDictionary *params = @{@"ServiceName": @"PcPriceSearch", @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -280,11 +314,12 @@
 }
 
 - (void)cancelOrder:(NSString *)message
+            orderId:(NSString *)oid
           withBlock:(void (^)(NSDictionary *result, NSError *error))block
 {
 //    512字符
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"Message\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken], message];
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"UserCarCode\":\"%@\",\"Message\":\"%@\",\"OrdOid\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], [self userToken], message, oid];
     NSDictionary *params = @{@"ServiceName" : @"GetInterCityListBackCommit", @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -98,7 +98,6 @@
             }
         } else {
             [self displayHUDTitle:nil message:@"无相关结果"];
-            NSLog(@"无相关结果");
         }
     }];
 }

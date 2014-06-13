@@ -22,6 +22,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *pickButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
 @property (nonatomic, weak) IBOutlet UIButton *cancelButton;
+@property (nonatomic, weak) IBOutlet UILabel *orderPriceLabel;
+@property (nonatomic, strong) NSString *orderPrice;
+@property (nonatomic, strong) NSString *listState;
 - (IBAction)orderButtonClick:(id)sender;
 - (IBAction)pickButtonClick:(id)sender;
 - (IBAction)sendButtonClick:(id)sender;

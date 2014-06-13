@@ -11,6 +11,14 @@
 		18278E5019490197004F7561 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18278E4E19490197004F7561 /* RegisterViewController.xib */; };
 		18278E5419491E8F004F7561 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18278E5219491E8F004F7561 /* UploadViewController.m */; };
 		18278E5519491E8F004F7561 /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18278E5319491E8F004F7561 /* UploadViewController.xib */; };
+		183A0A87194A886D001C819F /* SelectRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A0A85194A886D001C819F /* SelectRoleViewController.m */; };
+		183A0A88194A886D001C819F /* SelectRoleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183A0A86194A886D001C819F /* SelectRoleViewController.xib */; };
+		183A0A8C194A974B001C819F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A0A8A194A974B001C819F /* LoginViewController.m */; };
+		183A0A8D194A974B001C819F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183A0A8B194A974B001C819F /* LoginViewController.xib */; };
+		183A0A93194AA1C7001C819F /* AllOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A0A91194AA1C7001C819F /* AllOrderListViewController.m */; };
+		183A0A94194AA1C7001C819F /* AllOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183A0A92194AA1C7001C819F /* AllOrderListViewController.xib */; };
+		183A0A98194AA1D4001C819F /* OrderingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A0A96194AA1D4001C819F /* OrderingListViewController.m */; };
+		183A0A99194AA1D4001C819F /* OrderingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183A0A97194AA1D4001C819F /* OrderingListViewController.xib */; };
 		183F667619302C3600CF8177 /* DBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F667519302C3600CF8177 /* DBObject.m */; };
 		183F667A1930400800CF8177 /* DBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F66781930400800CF8177 /* DBDetailViewController.m */; };
 		183F667B1930400800CF8177 /* DBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183F66791930400800CF8177 /* DBDetailViewController.xib */; };
@@ -84,6 +92,18 @@
 		18278E5119491E8F004F7561 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		18278E5219491E8F004F7561 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		18278E5319491E8F004F7561 /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
+		183A0A84194A886D001C819F /* SelectRoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRoleViewController.h; sourceTree = "<group>"; };
+		183A0A85194A886D001C819F /* SelectRoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRoleViewController.m; sourceTree = "<group>"; };
+		183A0A86194A886D001C819F /* SelectRoleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectRoleViewController.xib; sourceTree = "<group>"; };
+		183A0A89194A974B001C819F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		183A0A8A194A974B001C819F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		183A0A8B194A974B001C819F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		183A0A90194AA1C7001C819F /* AllOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOrderListViewController.h; sourceTree = "<group>"; };
+		183A0A91194AA1C7001C819F /* AllOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOrderListViewController.m; sourceTree = "<group>"; };
+		183A0A92194AA1C7001C819F /* AllOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllOrderListViewController.xib; sourceTree = "<group>"; };
+		183A0A95194AA1D4001C819F /* OrderingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderingListViewController.h; sourceTree = "<group>"; };
+		183A0A96194AA1D4001C819F /* OrderingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderingListViewController.m; sourceTree = "<group>"; };
+		183A0A97194AA1D4001C819F /* OrderingListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderingListViewController.xib; sourceTree = "<group>"; };
 		183F667419302C3600CF8177 /* DBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBObject.h; sourceTree = "<group>"; };
 		183F667519302C3600CF8177 /* DBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBObject.m; sourceTree = "<group>"; };
 		183F66771930400800CF8177 /* DBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDetailViewController.h; sourceTree = "<group>"; };
@@ -204,6 +224,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183A0A8E194A974F001C819F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				18278E4C19490197004F7561 /* RegisterViewController.h */,
+				18278E4D19490197004F7561 /* RegisterViewController.m */,
+				18278E4E19490197004F7561 /* RegisterViewController.xib */,
+				183A0A89194A974B001C819F /* LoginViewController.h */,
+				183A0A8A194A974B001C819F /* LoginViewController.m */,
+				183A0A8B194A974B001C819F /* LoginViewController.xib */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		183A0A8F194AA19F001C819F /* DuanBo */ = {
+			isa = PBXGroup;
+			children = (
+				1858EF1E192C478400BE9714 /* DBViewController.h */,
+				1858EF1F192C478400BE9714 /* DBViewController.m */,
+				1858EF20192C478400BE9714 /* DBViewController.xib */,
+				183F66771930400800CF8177 /* DBDetailViewController.h */,
+				183F66781930400800CF8177 /* DBDetailViewController.m */,
+				183F66791930400800CF8177 /* DBDetailViewController.xib */,
+				183A0A90194AA1C7001C819F /* AllOrderListViewController.h */,
+				183A0A91194AA1C7001C819F /* AllOrderListViewController.m */,
+				183A0A92194AA1C7001C819F /* AllOrderListViewController.xib */,
+				183A0A95194AA1D4001C819F /* OrderingListViewController.h */,
+				183A0A96194AA1D4001C819F /* OrderingListViewController.m */,
+				183A0A97194AA1D4001C819F /* OrderingListViewController.xib */,
+			);
+			name = DuanBo;
+			sourceTree = "<group>";
+		};
 		183F6673192F1B7D00CF8177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +421,8 @@
 		18D4C94118A5F3BB00BFA2EE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				183A0A8F194AA19F001C819F /* DuanBo */,
+				183A0A8E194A974F001C819F /* User */,
 				1858EF23192C797700BE9714 /* Cell */,
 				18D4C94218A5FB2400BFA2EE /* OrderViewController.h */,
 				18D4C94318A5FB2400BFA2EE /* OrderViewController.m */,
@@ -379,18 +433,12 @@
 				18D4C94C18A60F5100BFA2EE /* ResultViewController.h */,
 				18D4C94D18A60F5100BFA2EE /* ResultViewController.m */,
 				18D4C94E18A60F5100BFA2EE /* ResultViewController.xib */,
-				1858EF1E192C478400BE9714 /* DBViewController.h */,
-				1858EF1F192C478400BE9714 /* DBViewController.m */,
-				1858EF20192C478400BE9714 /* DBViewController.xib */,
-				183F66771930400800CF8177 /* DBDetailViewController.h */,
-				183F66781930400800CF8177 /* DBDetailViewController.m */,
-				183F66791930400800CF8177 /* DBDetailViewController.xib */,
-				18278E4C19490197004F7561 /* RegisterViewController.h */,
-				18278E4D19490197004F7561 /* RegisterViewController.m */,
-				18278E4E19490197004F7561 /* RegisterViewController.xib */,
 				18278E5119491E8F004F7561 /* UploadViewController.h */,
 				18278E5219491E8F004F7561 /* UploadViewController.m */,
 				18278E5319491E8F004F7561 /* UploadViewController.xib */,
+				183A0A84194A886D001C819F /* SelectRoleViewController.h */,
+				183A0A85194A886D001C819F /* SelectRoleViewController.m */,
+				183A0A86194A886D001C819F /* SelectRoleViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -485,11 +533,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183A0A8D194A974B001C819F /* LoginViewController.xib in Resources */,
 				18D4C91D18A5E0E800BFA2EE /* InfoPlist.strings in Resources */,
 				18278E5019490197004F7561 /* RegisterViewController.xib in Resources */,
 				183F667B1930400800CF8177 /* DBDetailViewController.xib in Resources */,
 				1894C19118AB502B00A2380A /* .gitignore in Resources */,
 				18D4C94618A5FB2400BFA2EE /* OrderViewController.xib in Resources */,
+				183A0A94194AA1C7001C819F /* AllOrderListViewController.xib in Resources */,
 				18278E5519491E8F004F7561 /* UploadViewController.xib in Resources */,
 				18EE519419342369004D333D /* PushConfig.plist in Resources */,
 				1894C17218AB108B00A2380A /* PcSearchCell.xib in Resources */,
@@ -497,8 +547,10 @@
 				18D4C95018A60F5100BFA2EE /* ResultViewController.xib in Resources */,
 				1894C19818AB502B00A2380A /* README.md in Resources */,
 				1858EF28192C799400BE9714 /* DBCell.xib in Resources */,
+				183A0A99194AA1D4001C819F /* OrderingListViewController.xib in Resources */,
 				18D4C92518A5E0E800BFA2EE /* Images.xcassets in Resources */,
 				1858EF22192C478400BE9714 /* DBViewController.xib in Resources */,
+				183A0A88194A886D001C819F /* SelectRoleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,8 +614,11 @@
 				1894C16D18AA1DD400A2380A /* LZService.m in Sources */,
 				18D4C94518A5FB2400BFA2EE /* OrderViewController.m in Sources */,
 				18D4C94A18A5FB3F00BFA2EE /* CarpoolingViewController.m in Sources */,
+				183A0A98194AA1D4001C819F /* OrderingListViewController.m in Sources */,
+				183A0A93194AA1C7001C819F /* AllOrderListViewController.m in Sources */,
 				1894C19518AB502B00A2380A /* NSNumber+PrintableMeasurement.m in Sources */,
 				18D4C94F18A60F5100BFA2EE /* ResultViewController.m in Sources */,
+				183A0A8C194A974B001C819F /* LoginViewController.m in Sources */,
 				1894C19B18AB502B00A2380A /* UIDevice+ZBUtilites.m in Sources */,
 				1894C19718AB502B00A2380A /* NSString+ZBUtilites.m in Sources */,
 				1894C19D18AB502B00A2380A /* UIViewController+ZBUtilites.m in Sources */,
@@ -576,6 +631,7 @@
 				18D4C91F18A5E0E800BFA2EE /* main.m in Sources */,
 				1858EF21192C478400BE9714 /* DBViewController.m in Sources */,
 				1894C19918AB502B00A2380A /* UIColor+Hex.m in Sources */,
+				183A0A87194A886D001C819F /* SelectRoleViewController.m in Sources */,
 				1894C19318AB502B00A2380A /* CLLocation+NSString.m in Sources */,
 				1894C19618AB502B00A2380A /* NSString+BundleExtensions.m in Sources */,
 			);

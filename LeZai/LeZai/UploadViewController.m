@@ -51,14 +51,19 @@
 {
     UIButton *btn = (UIButton *)sender;
     if (_type == CANCEL_ORDER) {
-        if (_image == nil) {
-            [self displayHUDTitle:nil message:@"请选择图片!"];
+        if ([_messageTextView.text areAllCharactersSpace]) {
+            [self displayHUDTitle:nil message:@"请输入文字!"];
+            return;
+        }
+        if ([_messageTextView.text length] > 200) {
+            [self displayHUDTitle:nil message:@"文字长度超过限制!"];
             return;
         }
         [self displayHUD:@"提交中..."];
         [btn setEnabled:NO];
-        [[LZService shared] cancelOrder:_messageTextView.text withBlock:^(NSDictionary *result, NSError *error) {
-            NSLog(@"%@", result);
+        [[LZService shared] cancelOrder:_messageTextView.text
+                                orderId:_oid
+                              withBlock:^(NSDictionary *result, NSError *error) {
             [btn setEnabled:YES];
             if ([result isKindOfClass:[NSDictionary class]] && result) {
                 if ([result[@"OrdState"] integerValue] == 1) {
@@ -72,19 +77,14 @@
             }
         }];
     } else {
-        if ([_messageTextView.text length] > 0) {
-            [self displayHUDTitle:nil message:@"请输入文字!"];
-            return;
-        }
-        if ([_messageTextView.text length] > 200) {
-            [self displayHUDTitle:nil message:@"文字长度超过限制!"];
+        if (_image == nil) {
+            [self displayHUDTitle:nil message:@"请选择图片!"];
             return;
         }
         BOOL isSend = _type == SEND_ORDER;
         [self displayHUD:@"提交中..."];
         [btn setEnabled:NO];
         [[LZService shared] uploadImageWithType:isSend orderId:_oid image:_image orderNo:_orderNo withBlock:^(NSDictionary *result, NSError *error) {
-            NSLog(@"%@", result);
             [btn setEnabled:YES];
             if (result && [result isKindOfClass:[NSDictionary class]]) {
                 if ([result[@"OrdState"] integerValue] == 1) {
@@ -114,7 +114,6 @@
 {
     if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
     {
-        NSLog(@"模拟器不能照相!");
         return;
     }
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

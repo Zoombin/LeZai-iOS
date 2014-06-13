@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSString *oid;
 @property (nonatomic, strong) NSString *oidNo;
 @property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *orderPrice; //我的抢单金额
+@property (nonatomic, strong) NSString *listState; 
 
 + (DBObject *)createDBObjectWithDict:(NSDictionary *)dict;
 + (NSArray *)createDBObjectsWithArray:(NSArray *)array;

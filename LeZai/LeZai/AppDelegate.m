@@ -13,6 +13,10 @@
 #import "AppDelegate+Appearance.h"
 #import "LZService.h"
 #import "APService.h"
+#import "SelectRoleViewController.h"
+#import "AllOrderListViewController.h"
+#import "OrderingListViewController.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate {
     NSString *downloadUrl;
@@ -20,26 +24,7 @@
 
 - (void)test
 {
-//    [[LZService shared] uploadImageWithType:YES orderId:@"ca00521b-bfad-484b-bcb8-3b53eb1d3ba7" image:image orderNo:@"1406092000016" withBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result);
-//    }];
-//    [[LZService shared] orderListPage:1 count:10 WithBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result);
-//    }];
-//    [[LZService shared] orderInfo:@"05a27f7b-7dcc-463f-b121-53366be3a86e" withBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result);
-//    }];
-//    [[LZService shared] addOrder:@"1704b8b6-bc0c-4ff8-923b-b6788f4fc5b8" price:@"100" withBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result); //用Oid
-//    }];
-//    [[LZService shared] loginOrRegister:@"13862090556" password:@"123456" withBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result);
-//    }];
-    
-//    [[LZService shared] OrderedListWithBlock:^(NSDictionary *result, NSError *error) {
-//        NSLog(@"%@", result);
-//    }];
-    //Test Token: adcc88e110544b9596ef2fda67403a66 13862090556 123456
+
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -56,8 +41,60 @@
     
     [self customizeAppearance];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self addTabBar];
+    
+    if ([[LZService shared] userRole]) {
+        if ([[[LZService shared] userRole] isEqualToString:I_AM_DRIVER]) {
+            [self addDirverTabBar];
+        } else {
+            [self addCustomerTabBar];
+        }
+    } else {
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[SelectRoleViewController new]];
+        [self.window setRootViewController:navigationController];
+        [self.window makeKeyAndVisible];
+    }
+//    [self addTabBar];
     return YES;
+}
+
+- (void)addDirverTabBar
+{
+    if ([[LZService shared] userToken]) {
+         UINavigationController *allNavigationBar = [[UINavigationController alloc] initWithRootViewController:[AllOrderListViewController new]];
+         UINavigationController *ingNavigationBar = [[UINavigationController alloc] initWithRootViewController:[OrderingListViewController new]];
+        UINavigationController *dbNavigationBar = [[UINavigationController alloc] initWithRootViewController:[DBViewController new]];
+        
+        _tabBarController = [[UITabBarController alloc] init];
+        [_tabBarController setViewControllers:@[allNavigationBar, ingNavigationBar, dbNavigationBar]];
+        
+        [self.window setRootViewController:_tabBarController];
+        self.window.backgroundColor = [UIColor whiteColor];
+        [self.window makeKeyAndVisible];
+    } else {
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+        [self.window setRootViewController:navigationController];
+        [self.window makeKeyAndVisible];
+    }
+}
+
+- (void)addCustomerTabBar
+{
+    UINavigationController *carpoolingNavigationBar = [[UINavigationController alloc] initWithRootViewController:[OrderViewController new]];
+    UINavigationController *orderNavigationBar = [[UINavigationController alloc] initWithRootViewController:[CarpoolingViewController new]];
+    
+    _tabBarController = [[UITabBarController alloc] init];
+    [_tabBarController setViewControllers:@[carpoolingNavigationBar, orderNavigationBar]];
+    
+    [self.window setRootViewController:_tabBarController];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+}
+
+- (void)addSignIn
+{
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+    [self.window setRootViewController:navigationController];
+    [self.window makeKeyAndVisible];
 }
 
 //
