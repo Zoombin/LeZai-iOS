@@ -7,6 +7,7 @@
 //
 
 #import "SelectRoleViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "LZService.h"
 
@@ -33,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_customButton.layer setCornerRadius:7.0];
+    [_driverButton.layer setCornerRadius:7.0];
     // Do any additional setup after loading the view from its nib.
 }
 

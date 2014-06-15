@@ -12,4 +12,6 @@
 
 - (IBAction)driverButtonClick:(id)sender;
 - (IBAction)customButtonClick:(id)sender;
+@property (nonatomic, weak) IBOutlet UIButton *customButton;
+@property (nonatomic, weak) IBOutlet UIButton *driverButton;
 @end
