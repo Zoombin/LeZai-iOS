@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 #import "SBJson.h"
+#import "APService.h"
 
 //#define BASE_URL @"http://www.lezaiwang.com/web/httphandle/"
 #define BASE_URL @"http://192.168.11.125/Cargo.Portal/web/httphandle/"
@@ -45,6 +46,7 @@
 
 - (void)signOut
 {
+    [APService setTags:nil alias:nil callbackSelector:nil target:self];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:ROLE_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_TOKEN];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -245,7 +247,7 @@
 - (void)orderInfo:(NSString *)orderId withBlock:(void (^)(NSArray *, NSError *))block
 {
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"OrdOid\":\"%@\",\"ClientMode\":\"Ios\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], orderId];
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"ClientKey\":\"%@\",\"OrdOid\":\"%@\",\"ClientMode\":\"Ios\",\"UserCarCode\":\"%@\",\"UserName\":null,\"Password\":null}", [[device identifierForVendor] UUIDString], orderId, [self userToken]];
     NSDictionary *params = @{@"ServiceName": @"GetInterCityListInfo", @"ServicePara": paramsString};
     
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

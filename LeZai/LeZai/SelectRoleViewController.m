@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "LZService.h"
+#import "APService.H"
 
 @interface SelectRoleViewController ()
 
@@ -69,6 +70,7 @@
     
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (alertView.tag == ALERT_TAG_CUSTOMER) {
+        [APService setTags:[NSSet setWithObject:I_AM_CUSTOMER] alias:nil callbackSelector:nil target:self];
         [[LZService shared] saveRole:I_AM_CUSTOMER];
         [appdelegate addCustomerTabBar];
     } else {

@@ -62,6 +62,9 @@
             _priceLabel.text = [NSString stringWithFormat:@"%@", dbInfo.price];
             _submitLabel.text = dbInfo.submitDate;
             _statusLabel.text = dbInfo.statusName;
+            _shortOrderNOLabel.text = dbInfo.shortOrderNo;
+            price = [dbInfo.price intValue];
+            _selectPriceLabel.text = [NSString stringWithFormat:@"%d", price];
             if (_orderPrice) {
                 [_orderPriceLabel setHidden:NO];
                 _orderPriceLabel.text = [NSString stringWithFormat:@"抢单金额:  %@", _orderPrice];
@@ -95,23 +98,26 @@
             _sendButton.hidden = YES;
             _cancelButton.hidden = YES;
             _orderView.hidden = YES;
-            if ([dbInfo.status isEqualToString:@"B"]) {
-                _orderButton.hidden = NO;
-                _orderView.hidden = NO;
-            } else if([dbInfo.status isEqualToString:@"C"] && ![_listState isEqualToString:@"E"]) {
-                _pickButton.hidden = NO;
-                _cancelButton.hidden = NO;
-            } else if([dbInfo.status isEqualToString:@"E"]) {
-                _sendButton.hidden = NO;
-            } else if([dbInfo.status isEqualToString:@"F"]) {
+            if (![dbInfo.note isEqualToString:@"FALSE"]) {
+                if ([dbInfo.status isEqualToString:@"B"]) {
+                    _orderButton.hidden = NO;
+                    _orderView.hidden = NO;
+                } else if([dbInfo.status isEqualToString:@"C"] && ![_listState isEqualToString:@"E"]) {
+                    _pickButton.hidden = NO;
+                    _cancelButton.hidden = NO;
+                } else if([dbInfo.status isEqualToString:@"E"]) {
+                    _sendButton.hidden = NO;
+                } else if([dbInfo.status isEqualToString:@"F"]) {
+                    
+                }
             }
         }
-        
     }];
 }
 
 - (void)orderButtonClick:(id)sender
 {
+    [self displayHUD:@"抢单中..."];
     [[LZService shared] addOrder:dbInfo.oid price:[NSString stringWithFormat:@"%d", price] withBlock:^(NSDictionary *result, NSError *error) {
         NSLog(@"%d", price);
         NSLog(@"%@", result);
@@ -158,13 +164,13 @@
 
 - (IBAction)addButtonClick:(id)sender
 {
-    price = price + 5;
+    price = price + 10;
     _selectPriceLabel.text = [NSString stringWithFormat:@"%d", price];
 }
 
 - (IBAction)reduceButtonClick:(id)sender
 {
-    price = price - 5;
+    price = price - 10;
     if (price < 0) {
         price = 0;
     }

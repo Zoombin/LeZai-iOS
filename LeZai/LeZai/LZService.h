@@ -16,8 +16,8 @@
 #define ORDER_FINISH 4
 #define ORDER_CANCEL 5
 
-#define I_AM_DRIVER @"driver"
-#define I_AM_CUSTOMER @"custom"
+#define I_AM_DRIVER @"Driver"
+#define I_AM_CUSTOMER @"Customer"
 #define ROLE_KEY    @"role"
 #define START_LOCATION_KEY @"startlocation"
 #define END_LOCATION_KEY @"endlocation"

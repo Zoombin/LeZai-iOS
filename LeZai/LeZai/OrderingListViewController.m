@@ -19,6 +19,7 @@
 @end
 
 @implementation OrderingListViewController {
+    UIRefreshControl *refreshControl;
     NSMutableArray *resultInfo;
     int page;
     int count;
@@ -43,7 +44,20 @@
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, _dbTableView.frame.size.width, 100.0f)];
+    [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+	[_dbTableView addSubview:refreshControl];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)refreshData
+{
+    page = 1;
+    [resultInfo removeAllObjects];
+    [_dbTableView reloadData];
+    [refreshControl beginRefreshing];
+    [self loadOrderingList];
 }
 
 - (void)signOut
@@ -78,6 +92,7 @@
                                count:count
                            withBlock:^(NSArray *result, NSError *error) {
                                 [self hideHUD:YES];
+                               [refreshControl endRefreshing];
                                 if ([result count] > 0) {
                                     if ([result count] < count) {
                                         [_dbTableView setTableFooterView:nil];
@@ -108,7 +123,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return [DBCell height];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

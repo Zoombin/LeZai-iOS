@@ -11,7 +11,7 @@
 #import "UIViewController+HUD.h"
 #import "LZService.h"
 #import "AppDelegate.h"
-
+#import "APService.h"
 
 @interface LoginViewController ()
 
@@ -97,6 +97,7 @@
                                       if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
                                           [self hideHUD:YES];
                                           [[LZService shared] saveUserToken:result[@"Token"]];
+                                          [APService setTags:[NSSet setWithObject:I_AM_DRIVER] alias:result[@"Token"] callbackSelector:nil target:self];
                                           [self pushToMain];
                                       } else {
                                           [self displayHUDTitle:nil message:@"登录失败"];

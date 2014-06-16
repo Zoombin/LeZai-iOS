@@ -110,6 +110,11 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // Required
     [APService handleRemoteNotification:userInfo];
+    NSLog(@"%@", userInfo);
+    if (userInfo) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"推送信息" message:userInfo[@"aps"][@"alert"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alertView show];
+    }
 }
 
 - (void)checkUpdate

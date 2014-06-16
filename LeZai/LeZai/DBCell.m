@@ -22,6 +22,11 @@
     // Configure the view for the selected state
 }
 
++ (CGFloat)height
+{
+    return 130;
+}
+
 - (void)setDuanBo:(DBObject *)duanBo
 {
     _startLocationLabel.text = duanBo.departure;
@@ -29,6 +34,7 @@
     _finishDateLabel.text = duanBo.finishDate;
     _priceLabel.text = [NSString stringWithFormat:@"%@", duanBo.price];
     _submitLabel.text = duanBo.submitDate;
+    _orderNoLabel.text = duanBo.shortOrderNo;
 }
 
 @end

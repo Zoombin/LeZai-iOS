@@ -17,4 +17,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *finishDateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 @property (nonatomic, weak) IBOutlet UILabel *submitLabel;
+@property (nonatomic, weak) IBOutlet UILabel *orderNoLabel;
++ (CGFloat)height;
 @end

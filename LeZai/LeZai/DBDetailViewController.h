@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
 @property (nonatomic, weak) IBOutlet UIButton *cancelButton;
 @property (nonatomic, weak) IBOutlet UILabel *orderPriceLabel;
+@property (nonatomic, weak) IBOutlet UILabel *shortOrderNOLabel;
 @property (nonatomic, strong) NSString *orderPrice;
 @property (nonatomic, strong) NSString *listState;
 @property (nonatomic, weak) IBOutlet UIView *orderView;

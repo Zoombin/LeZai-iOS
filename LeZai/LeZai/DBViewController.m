@@ -20,6 +20,7 @@
 @end
 
 @implementation DBViewController {
+    UIRefreshControl *refreshControl;
     NSMutableArray *resultInfo;
     int page;
     int count;
@@ -49,6 +50,19 @@
     
     [_dbTableView setTableHeaderView:_segmentedControl2];
     [_dbTableView setFrame:CGRectMake(0, 0, 320, 548 - 44)];
+    
+     refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, _dbTableView.frame.size.width, 100.0f)];
+    [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+	[_dbTableView.tableHeaderView addSubview:refreshControl];
+}
+
+- (void)refreshData
+{
+    page = 1;
+    [resultInfo removeAllObjects];
+    [_dbTableView reloadData];
+    [refreshControl beginRefreshing];
+    [self loadOrderedList];
 }
 
 - (void)signOut
@@ -89,6 +103,7 @@
                                count:count
                            withBlock:^(NSArray *result, NSError *error) {
                                [self hideHUD:YES];
+                               [refreshControl endRefreshing];
                                if ([result count] > 0) {
                                    if ([result count] < count) {
                                        [_dbTableView setTableFooterView:nil];
@@ -113,7 +128,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return [DBCell height];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

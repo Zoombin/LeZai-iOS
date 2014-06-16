@@ -24,7 +24,9 @@
 @property (nonatomic, strong) NSString *oidNo;
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *orderPrice; //我的抢单金额
-@property (nonatomic, strong) NSString *listState; 
+@property (nonatomic, strong) NSString *listState;
+@property (nonatomic, strong) NSString *shortOrderNo; //显示给用户看的
+@property (nonatomic, strong) NSString *note; //是否显示按钮 false
 
 + (DBObject *)createDBObjectWithDict:(NSDictionary *)dict;
 + (NSArray *)createDBObjectsWithArray:(NSArray *)array;

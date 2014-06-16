@@ -153,7 +153,7 @@
 - (void)imagePickerController: (UIImagePickerController *)picker didFinishPickingMediaWithInfo: (NSDictionary *)info
 {
 	UIImage* image = info[UIImagePickerControllerOriginalImage];
-    _image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.3)];
+    _image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.1)];
     [_imageView setImage:_image];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

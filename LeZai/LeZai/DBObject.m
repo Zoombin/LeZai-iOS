@@ -34,6 +34,8 @@
     } else if ([obj.status isEqualToString:@"F"]) {
         obj.statusName = @"订单完成";
     }
+    obj.shortOrderNo = dict[@"ShortOrdNo"];
+    obj.note = dict[@"Note"];
     return obj;
 }
 
