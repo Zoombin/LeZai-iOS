@@ -28,6 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_imageView.layer setCornerRadius:7.0];
+    [_imageView.layer setBorderColor:[UIColor grayColor].CGColor];
+    [_imageView.layer setBorderWidth:.5];
+    [_messageTextView.layer setCornerRadius:7.0];
+    [_messageTextView.layer setBorderColor:[UIColor grayColor].CGColor];
+    [_messageTextView.layer setBorderWidth:.5];
+    
     [_imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_imageButton setHidden:YES];
     [_imageView setHidden:YES];

@@ -13,6 +13,7 @@
 #import "NSString+ZBUtilites.h"
 #import "LZService.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
 #define CORNER_RADIUS 4
 #define BORDER_WIDTH 0.5
@@ -34,6 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
     [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
     [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
     [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
@@ -57,6 +61,21 @@
     }
     if ([[LZService shared] endLocation]) {
         _endLocationTextField.text = [[LZService shared] endLocation];
+    }
+}
+
+- (void)signOut
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"确定切换用户身份吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [[LZService shared] signOut];
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate changeRole];
     }
 }
 

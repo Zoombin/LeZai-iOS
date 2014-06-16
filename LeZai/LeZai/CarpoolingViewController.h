@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarpoolingViewController : UIViewController <UITextFieldDelegate>
+@interface CarpoolingViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIView *datePickerView;

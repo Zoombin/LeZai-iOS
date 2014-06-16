@@ -49,11 +49,8 @@
             [self addCustomerTabBar];
         }
     } else {
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[SelectRoleViewController new]];
-        [self.window setRootViewController:navigationController];
-        [self.window makeKeyAndVisible];
+        [self changeRole];
     }
-//    [self addTabBar];
     return YES;
 }
 
@@ -87,6 +84,13 @@
     
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+}
+
+- (void)changeRole
+{
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[SelectRoleViewController new]];
+    [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
 }
 

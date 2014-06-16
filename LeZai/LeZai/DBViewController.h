@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DBViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DBViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *footView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl2;

@@ -12,6 +12,7 @@
 #import "UIViewController+HUD.h"
 #import "LZService.h"
 #import "DBCell.h"
+#import "AppDelegate.h"
 
 @interface OrderingListViewController ()
 
@@ -39,7 +40,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
+    self.navigationItem.leftBarButtonItem = leftButton;
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)signOut
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"确定切换用户身份吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [[LZService shared] signOut];
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate changeRole];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

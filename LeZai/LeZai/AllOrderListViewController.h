@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllOrderListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AllOrderListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *dbTableView;
 @property (nonatomic, strong) IBOutlet UIView *footView;

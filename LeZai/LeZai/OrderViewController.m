@@ -11,6 +11,7 @@
 #import "UIViewController+HUD.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+ZBUtilites.h"
+#import "AppDelegate.h"
 
 #define SEARCH_HISTORY  @"search_history"
 
@@ -50,7 +51,26 @@
     [_resultTextView.layer setCornerRadius:7];
     [_resultTextView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [_resultTextView.layer setBorderWidth:.5];
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
+    self.navigationItem.leftBarButtonItem = leftButton;
 }
+
+- (void)signOut
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"确定切换用户身份吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [[LZService shared] signOut];
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate changeRole];
+    }
+}
+
 
 - (IBAction)hidenKeyBoard:(id)sender
 {

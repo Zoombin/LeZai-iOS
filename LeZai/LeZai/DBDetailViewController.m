@@ -122,6 +122,8 @@
             [self displayHUDTitle:nil message:@"抢单失败!"];
         } else if ([result[@"OrdState"] integerValue] == 2){
             [self displayHUDTitle:nil message:@"此单已接单成功不允许再竞单!"];
+        } else if ([result[@"OrdState"] integerValue] == 3) {
+            [self displayHUDTitle:nil message:@"订单已过期!"];
         } else {
             [self displayHUDTitle:nil message:@"抢单失败!"];
         }

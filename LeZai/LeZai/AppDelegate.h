@@ -15,4 +15,5 @@
 
 - (void)addDirverTabBar;
 - (void)addCustomerTabBar;
+- (void)changeRole;
 @end

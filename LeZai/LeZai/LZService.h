@@ -27,6 +27,7 @@
 - (NSString *)userToken;
 - (void)saveUserToken:(NSString *)token;
 - (void)saveRole:(NSString *)role;
+- (void)signOut;
 - (NSString *)userRole;
 - (void)saveStartLocation:(NSString *)start;
 - (void)saveEndLocation:(NSString *)end;

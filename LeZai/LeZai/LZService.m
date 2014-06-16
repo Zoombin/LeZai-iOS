@@ -11,8 +11,8 @@
 #import "AFJSONRequestOperation.h"
 #import "SBJson.h"
 
-#define BASE_URL @"http://www.lezaiwang.com/web/httphandle/"
-//#define BASE_URL @"http://192.168.11.125/Cargo.Portal/web/httphandle/"
+//#define BASE_URL @"http://www.lezaiwang.com/web/httphandle/"
+#define BASE_URL @"http://192.168.11.125/Cargo.Portal/web/httphandle/"
 
 @implementation LZService
 +(instancetype)shared
@@ -40,6 +40,13 @@
 - (void)saveRole:(NSString *)role
 {
     [[NSUserDefaults standardUserDefaults] setObject:role forKey:ROLE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)signOut
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ROLE_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_TOKEN];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

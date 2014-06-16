@@ -47,6 +47,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == _confirmTextField) {
+        [self registerButtonClick:nil];
+    }
+    return YES;
+}
+
+
 - (IBAction)registerButtonClick:(id)sender
 {
     [self hidenAllKeyboard];
