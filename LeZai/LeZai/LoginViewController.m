@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "UIViewController+HUD.h"
+#import <QuartzCore/QuartzCore.h>
 #import "LZService.h"
 #import "AppDelegate.h"
 #import "APService.h"
@@ -24,20 +25,34 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"登录";
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenAllKeyboard)];
-    [_loginScroll addGestureRecognizer:tapGesture];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStyleBordered target:self action:@selector(registerButtonClick:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    [_loginButton.layer setCornerRadius:5.0];
+    
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenAllKeyboard)];
+//    [_loginScroll addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([[LZService shared] userAccount] && [[LZService shared] userPassword]) {
+        _accountTextField.text = [[LZService shared] userAccount];
+        _passwordTextField.text = [[LZService shared] userPassword];
+    }
+    [_accountTextField becomeFirstResponder];
 }
 
 - (void)signOut
@@ -54,7 +69,6 @@
         [delegate changeRole];
     }
 }
-
 
 - (void)hidenAllKeyboard
 {
@@ -97,6 +111,7 @@
                                       if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
                                           [self hideHUD:YES];
                                           [[LZService shared] saveUserToken:result[@"Token"]];
+                                          [[LZService shared] saveAccount:_accountTextField.text password:_passwordTextField.text];
                                           [APService setTags:[NSSet setWithObject:I_AM_DRIVER] alias:result[@"Token"] callbackSelector:nil target:self];
                                           [self pushToMain];
                                       } else {

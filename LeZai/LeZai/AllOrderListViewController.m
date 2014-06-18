@@ -31,6 +31,8 @@
     if (self) {
         // Custom initialization
         self.title = @"所有订单";
+         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"allorder_hl"] withFinishedUnselectedImage:[UIImage imageNamed:@"allorder_n"]];
+        [self.tabBarItem setTitle:@""];
         resultInfo = [NSMutableArray array];
         page = 1;
         count = 10;

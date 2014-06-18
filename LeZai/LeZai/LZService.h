@@ -21,11 +21,16 @@
 #define ROLE_KEY    @"role"
 #define START_LOCATION_KEY @"startlocation"
 #define END_LOCATION_KEY @"endlocation"
+#define USER_ACCOUNT @"account"
+#define USER_PASSWORD @"password"
 
 @interface LZService : AFHTTPClient
 + (instancetype)shared;
 - (NSString *)userToken;
+- (NSString *)userAccount;
+- (NSString *)userPassword;
 - (void)saveUserToken:(NSString *)token;
+- (void)saveAccount:(NSString *)account password:(NSString *)password;
 - (void)saveRole:(NSString *)role;
 - (void)signOut;
 - (NSString *)userRole;

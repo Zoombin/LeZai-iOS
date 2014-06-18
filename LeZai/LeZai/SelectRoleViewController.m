@@ -27,7 +27,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"选择用户类型";
     }
     return self;
 }
@@ -35,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     [_customButton.layer setCornerRadius:7.0];
     [_driverButton.layer setCornerRadius:7.0];
     // Do any additional setup after loading the view from its nib.

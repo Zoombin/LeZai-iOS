@@ -18,5 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 @property (nonatomic, weak) IBOutlet UILabel *submitLabel;
 @property (nonatomic, weak) IBOutlet UILabel *orderNoLabel;
+@property (nonatomic, weak) IBOutlet UITextView *infoTextView;
 + (CGFloat)height;
 @end

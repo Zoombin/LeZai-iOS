@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "UIViewController+Hud.h"
 #import "LZService.h"
+#import "APService.h"
 
 @interface RegisterViewController ()
 
@@ -21,7 +22,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"注册";
     }
     return self;
 }
@@ -31,7 +31,15 @@
     [super viewDidLoad];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenAllKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    [_registerButton.layer setCornerRadius:5.0];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_accountTextField becomeFirstResponder];
 }
 
 - (void)hidenAllKeyboard
@@ -80,6 +88,7 @@
     [[LZService shared] loginOrRegister:_accountTextField.text password:_passwordTextField.text type:0 withBlock:^(NSDictionary *result, NSError *error) {
         if ([result isKindOfClass:[NSDictionary class]] && result) {
             if ([result[@"Token"] length] > 0 && ![result[@"Token"] isEqualToString:@"false"]) {
+                [APService setTags:[NSSet setWithObject:I_AM_DRIVER] alias:result[@"Token"] callbackSelector:nil target:self];
                 [self displayHUDTitle:nil message:@"注册成功请等待后台审核!"];
             } else {
                 [self displayHUDTitle:nil message:@"注册失败!"];

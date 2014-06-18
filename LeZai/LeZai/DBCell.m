@@ -24,11 +24,13 @@
 
 + (CGFloat)height
 {
-    return 130;
+    return 170;
 }
 
 - (void)setDuanBo:(DBObject *)duanBo
 {
+    _infoTextView.text = [NSString stringWithFormat:@"订单号:%@\n始发地:%@\n目的地:%@\n提货日期:%@\n订单金额:%@\n发布时间:%@\n",duanBo.shortOrderNo, duanBo.departure, duanBo.destination, duanBo.finishDate,duanBo.price, duanBo.submitDate];
+    
     _startLocationLabel.text = duanBo.departure;
     _destinationLabel.text = duanBo.destination;
     _finishDateLabel.text = duanBo.finishDate;

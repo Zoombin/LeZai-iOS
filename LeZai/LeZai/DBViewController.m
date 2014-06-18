@@ -37,6 +37,9 @@
         count = 10;
         type = ORDER_PICK;
         resultInfo = [NSMutableArray array];
+        
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"ordered_hl"] withFinishedUnselectedImage:[UIImage imageNamed:@"ordered_n"]];
+        [self.tabBarItem setTitle:@""];
     }
     return self;
 }

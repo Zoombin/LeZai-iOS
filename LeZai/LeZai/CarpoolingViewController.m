@@ -38,13 +38,13 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
-    [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
-    [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
-    [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
-    
-    [_endLocationTextField.layer setCornerRadius:CORNER_RADIUS];
-    [_endLocationTextField.layer setBorderWidth:BORDER_WIDTH];
-    [_endLocationTextField.layer setBorderColor:BORDER_COLOR];
+//    [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
+//    [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
+//    [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
+//    
+//    [_endLocationTextField.layer setCornerRadius:CORNER_RADIUS];
+//    [_endLocationTextField.layer setBorderWidth:BORDER_WIDTH];
+//    [_endLocationTextField.layer setBorderColor:BORDER_COLOR];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStyleBordered target:self action:@selector(search)];
     self.navigationItem.rightBarButtonItem = rightButton;

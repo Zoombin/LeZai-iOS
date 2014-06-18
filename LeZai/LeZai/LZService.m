@@ -26,6 +26,18 @@
     return instance;
 }
 
+- (NSString *)userAccount
+{
+    NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ACCOUNT];
+    return account;
+}
+
+- (NSString *)userPassword
+{
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:USER_PASSWORD];
+    return password;
+}
+
 - (NSString *)userToken
 {
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:USER_TOKEN];
@@ -35,6 +47,13 @@
 - (void)saveUserToken:(NSString *)token
 {
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:USER_TOKEN];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)saveAccount:(NSString *)account password:(NSString *)password
+{
+    [[NSUserDefaults standardUserDefaults] setObject:account forKey:USER_ACCOUNT];
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:USER_PASSWORD];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -108,7 +127,7 @@
                    withBlock:(void(^)(NSString *result))block
 {
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Ios\",\"ClientKey\":\"%@\"\"UserName\":null,\"Password\":null}",[[device identifierForVendor] UUIDString],orederNo];
+    NSString *paramsString = [NSString stringWithFormat:@"{\"ToKen\":\"acf7ef943fdeb3cbfed8dd0d8f584731\",\"OrderNo\":\"%@\",\"ClientMode\":\"Ios\",\"ClientKey\":\"%@\",\"UserName\":null,\"Password\":null}", orederNo,[[device identifierForVendor] UUIDString]];
     NSDictionary *params = @{@"ServiceName": @"OrderState", @"ServicePara": paramsString};
 
     [self getPath:@"szzwservice.ashx" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

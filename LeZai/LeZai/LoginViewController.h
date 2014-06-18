@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *accountTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, weak) IBOutlet UIScrollView *loginScroll;
+@property (nonatomic, weak) IBOutlet UIButton *loginButton;
 - (IBAction)loginButtonClick:(id)sender;
 - (IBAction)registerButtonClick:(id)sender;
 @end
