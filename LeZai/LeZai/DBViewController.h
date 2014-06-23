@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LezaiSegmentalView.h"
 
-@interface DBViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface DBViewController : UIViewController <LezaiSegmentalViewDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *footView;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl2;
+//@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl2;
 @property (nonatomic, strong) IBOutlet UITableView *dbTableView;
 - (IBAction)secondSegValueChanged:(id)sender;
 - (IBAction)loadMoreButtonClick:(id)sender;

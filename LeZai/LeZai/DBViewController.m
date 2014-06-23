@@ -21,6 +21,7 @@
 
 @implementation DBViewController {
     UIRefreshControl *refreshControl;
+    LezaiSegmentalView *_segmentedControl2;
     NSMutableArray *resultInfo;
     int page;
     int count;
@@ -47,9 +48,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    _segmentedControl2 = [[LezaiSegmentalView alloc] initWithImage:[UIImage imageNamed:@"seg_n"] andHighlightImage:[UIImage imageNamed:@"seg_hl"] andTitles:@[@"等待提货", @"等待送货", @"已完成", @"撤销中"]];
+    [_segmentedControl2 setDelegate:self];
     
     [_dbTableView setTableHeaderView:_segmentedControl2];
     [_dbTableView setFrame:CGRectMake(0, 0, 320, 548 - 44)];
@@ -161,6 +165,25 @@
     viewCtrl.hidesBottomBarWhenPushed = YES;
     viewCtrl.listState = object.listState;
     [self.navigationController pushViewController:viewCtrl animated:YES];
+}
+
+- (void)selectIndex:(int)index
+{
+    page = 1;
+    [resultInfo removeAllObjects];
+    [_dbTableView reloadData];
+    [_dbTableView setTableFooterView:nil];
+    
+    if (index == 0) {
+        type = ORDER_PICK;
+    } else if (index == 1) {
+        type = ORDER_SEND;
+    } else if (index == 2) {
+        type = ORDER_FINISH;
+    }  else {
+        type = ORDER_CANCEL;
+    }
+    [self loadOrderedList];
 }
 
 - (IBAction)secondSegValueChanged:(id)sender

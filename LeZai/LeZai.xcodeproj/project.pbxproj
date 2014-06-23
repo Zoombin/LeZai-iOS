@@ -45,6 +45,7 @@
 		1894C19E18AB502B00A2380A /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C18E18AB502B00A2380A /* ZBTextValidate.m */; };
 		1894C19F18AB502B00A2380A /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C19018AB502B00A2380A /* ZBViewController.m */; };
 		1894C1A218AB522800A2380A /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */; };
+		189980401958068B0031ECE6 /* LezaiSegmentalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899803F1958068B0031ECE6 /* LezaiSegmentalView.m */; };
 		18B659A318B1FDFD00193D85 /* PCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B659A218B1FDFD00193D85 /* PCObject.m */; };
 		18D4C91318A5E0E800BFA2EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91218A5E0E800BFA2EE /* Foundation.framework */; };
 		18D4C91518A5E0E800BFA2EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D4C91418A5E0E800BFA2EE /* CoreGraphics.framework */; };
@@ -150,6 +151,8 @@
 		1894C19018AB502B00A2380A /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		1894C1A018AB522800A2380A /* AppDelegate+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Appearance.h"; sourceTree = "<group>"; };
 		1894C1A118AB522800A2380A /* AppDelegate+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Appearance.m"; sourceTree = "<group>"; };
+		1899803E1958068B0031ECE6 /* LezaiSegmentalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LezaiSegmentalView.h; sourceTree = "<group>"; };
+		1899803F1958068B0031ECE6 /* LezaiSegmentalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LezaiSegmentalView.m; sourceTree = "<group>"; };
 		18B659A118B1FDFD00193D85 /* PCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCObject.h; sourceTree = "<group>"; };
 		18B659A218B1FDFD00193D85 /* PCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCObject.m; sourceTree = "<group>"; };
 		18D4C90F18A5E0E800BFA2EE /* LeZai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeZai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -439,6 +442,8 @@
 				18278E5119491E8F004F7561 /* UploadViewController.h */,
 				18278E5219491E8F004F7561 /* UploadViewController.m */,
 				18278E5319491E8F004F7561 /* UploadViewController.xib */,
+				1899803E1958068B0031ECE6 /* LezaiSegmentalView.h */,
+				1899803F1958068B0031ECE6 /* LezaiSegmentalView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				183F667A1930400800CF8177 /* DBDetailViewController.m in Sources */,
 				18B659A318B1FDFD00193D85 /* PCObject.m in Sources */,
 				1894C19C18AB502B00A2380A /* UIViewController+HUD.m in Sources */,
+				189980401958068B0031ECE6 /* LezaiSegmentalView.m in Sources */,
 				18278E4F19490197004F7561 /* RegisterViewController.m in Sources */,
 				1894C19A18AB502B00A2380A /* UIColor+Random.m in Sources */,
 				1894C17018AB105200A2380A /* PcSearchCell.m in Sources */,

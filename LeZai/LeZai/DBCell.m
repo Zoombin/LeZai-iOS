@@ -24,7 +24,7 @@
 
 + (CGFloat)height
 {
-    return 170;
+    return 180;
 }
 
 - (void)setDuanBo:(DBObject *)duanBo
