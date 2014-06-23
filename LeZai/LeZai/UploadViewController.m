@@ -153,9 +153,50 @@
 - (void)imagePickerController: (UIImagePickerController *)picker didFinishPickingMediaWithInfo: (NSDictionary *)info
 {
 	UIImage* image = info[UIImagePickerControllerOriginalImage];
-    _image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.1)];
+    _image = [self scaleToSize:CGSizeMake(500, 500) image:image];
     [_imageView setImage:_image];
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage*)scaleToSize:(CGSize)size image:(UIImage *)image
+{
+    CGFloat width = CGImageGetWidth(image.CGImage);
+    CGFloat height = CGImageGetHeight(image.CGImage);
+    
+    float verticalRadio = size.height * 1.0/height;
+    float horizontalRadio = size.width * 1.0/width;
+    
+    float radio = 1;
+    if(verticalRadio>1 && horizontalRadio>1)
+    {
+        radio = verticalRadio > horizontalRadio ? horizontalRadio : verticalRadio;
+    }
+    else
+    {
+        radio = verticalRadio < horizontalRadio ? verticalRadio : horizontalRadio;
+    }
+    
+    width = width*radio;
+    height = height*radio;
+    
+    int xPos = (size.width - width)/2;
+    int yPos = (size.height-height)/2;
+    
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(size);
+    
+    // 绘制改变大小的图片
+    [image drawInRect:CGRectMake(xPos, yPos, width, height)];
+    
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    
+    // 返回新的改变大小后的图片
+    return scaledImage;
 }
 
 - (void)selectPhotoPicker
