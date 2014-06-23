@@ -7,8 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadViewController">
             <connections>
+                <outlet property="boxImageView" destination="SOA-vy-Lvp" id="ehG-Zn-NHs"/>
                 <outlet property="imageButton" destination="jHn-bl-7xj" id="QCQ-WH-8YW"/>
-                <outlet property="imageView" destination="SOA-vy-Lvp" id="X8B-TV-lSr"/>
+                <outlet property="imageView" destination="Qq1-XP-Hs4" id="fea-WF-wZ1"/>
                 <outlet property="messageTextView" destination="73M-Cz-zjz" id="0iX-ln-UUH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,23 +23,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SOA-vy-Lvp">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_box" id="SOA-vy-Lvp">
                             <rect key="frame" x="50" y="90" width="221" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="73M-Cz-zjz">
                             <rect key="frame" x="50" y="90" width="221" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jHn-bl-7xj">
-                            <rect key="frame" x="136" y="34" width="48" height="48"/>
+                            <rect key="frame" x="135" y="33" width="50" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <state key="normal" backgroundImage="camera_icon">
+                            <state key="normal" image="camera_icon">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -56,6 +57,11 @@
                                 <action selector="sumitButtonClick:" destination="-1" eventType="touchUpInside" id="eeT-Pg-khn"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qq1-XP-Hs4">
+                            <rect key="frame" x="53" y="93" width="215" height="174"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -65,6 +71,7 @@
         </view>
     </objects>
     <resources>
-        <image name="camera_icon" width="26" height="26"/>
+        <image name="camera_icon" width="99" height="88"/>
+        <image name="photo_box" width="250" height="215"/>
     </resources>
 </document>

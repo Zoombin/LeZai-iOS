@@ -28,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_imageView.layer setCornerRadius:7.0];
-    [_imageView.layer setBorderColor:[UIColor grayColor].CGColor];
-    [_imageView.layer setBorderWidth:.5];
     [_messageTextView.layer setCornerRadius:7.0];
     [_messageTextView.layer setBorderColor:[UIColor grayColor].CGColor];
     [_messageTextView.layer setBorderWidth:.5];
@@ -38,13 +35,16 @@
     [_imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_imageButton setHidden:YES];
     [_imageView setHidden:YES];
+    [_boxImageView setHidden:YES];
     [_messageTextView setHidden:YES];
     if (_type == PICK_ORDER) {
         self.title = @"确定提货";
         [_imageView setHidden:NO];
+        [_boxImageView setHidden:NO];
         [_imageButton setHidden:NO];
     } else if (_type == SEND_ORDER) {
         [_imageView setHidden:NO];
+        [_boxImageView setHidden:NO];
         [_imageButton setHidden:NO];
         self.title = @"确定收货";
     } else {

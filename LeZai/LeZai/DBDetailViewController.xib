@@ -133,7 +133,7 @@
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jHX-hf-NCg">
                             <rect key="frame" x="233" y="124" width="67" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.92941176470588238" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="抢单"/>
@@ -147,7 +147,7 @@
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="agY-jy-yza">
                             <rect key="frame" x="22" y="369" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.92941176470588238" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="确定提货"/>
@@ -161,7 +161,7 @@
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vqf-oO-zjI">
                             <rect key="frame" x="122" y="369" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.61568627450000002" green="0.89019607840000003" blue="0.98039215690000003" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.11764705882352941" green="0.68627450980392157" blue="0.92941176470588238" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="确定送货"/>
@@ -175,7 +175,7 @@
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AwE-if-t4A">
                             <rect key="frame" x="219" y="369" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.97254901959999995" green="0.41960784309999999" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.99215686270000003" green="0.46666666670000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="撤销订单"/>

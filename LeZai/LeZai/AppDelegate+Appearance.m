@@ -32,7 +32,6 @@
 	appearance = [UITabBar appearance];
 	[appearance setBackgroundImage:[self imageFromColor:color]];
 	[appearance setSelectionIndicatorImage:[[UIImage alloc] init]];
-    
 	
 #pragma mark - UIBarButtonItem Appearance
 	appearance = [UIBarButtonItem appearance];
