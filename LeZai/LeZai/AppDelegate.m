@@ -17,6 +17,7 @@
 #import "AllOrderListViewController.h"
 #import "OrderingListViewController.h"
 #import "LoginViewController.h"
+#import "MobClick.h"
 
 @implementation AppDelegate {
     NSString *downloadUrl;
@@ -33,6 +34,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     // Required
+    [MobClick startWithAppkey:@"53a7e80556240bee0c066673" reportPolicy:SEND_INTERVAL   channelId:@"App Store"];
     [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
                                                    UIRemoteNotificationTypeSound |
                                                    UIRemoteNotificationTypeAlert)];
