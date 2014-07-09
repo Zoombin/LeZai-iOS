@@ -42,43 +42,20 @@
 
 - (IBAction)driverButtonClick:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"确定选择司机吗？"
-                                                       delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"确定", nil];
-    alertView.tag = ALERT_TAG_DRIVER;
-    [alertView show];
+    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [[LZService shared] saveRole:I_AM_DRIVER];
+    [appdelegate addDirverTabBar];
 }
 
 - (IBAction)customButtonClick:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"确定选择客户吗？"
-                                                       delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"确定", nil];
-    alertView.tag = ALERT_TAG_CUSTOMER;
-    [alertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.cancelButtonIndex == buttonIndex) {
-        return;
-    }
-    
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (alertView.tag == ALERT_TAG_CUSTOMER) {
-        [APService setTags:[NSSet setWithObject:I_AM_CUSTOMER] alias:nil callbackSelector:nil target:self];
-        [[LZService shared] saveRole:I_AM_CUSTOMER];
-        [appdelegate addCustomerTabBar];
-    } else {
-        [[LZService shared] saveRole:I_AM_DRIVER];
-        [appdelegate addDirverTabBar];
-    }
+    
+    [APService setTags:[NSSet setWithObject:I_AM_CUSTOMER] alias:nil callbackSelector:nil target:self];
+    [[LZService shared] saveRole:I_AM_CUSTOMER];
+    [appdelegate addCustomerTabBar];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
