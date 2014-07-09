@@ -21,4 +21,5 @@
 - (IBAction)showDatePicker:(id)sender;
 - (IBAction)hidenDatePicker:(id)sender;
 - (void)search;
+- (IBAction)searchButtonClick:(id)sender;
 @end

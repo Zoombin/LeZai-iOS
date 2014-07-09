@@ -123,7 +123,7 @@
         NSLog(@"%@", result);
         if ([result[@"OrdState"] integerValue] == 1) {
             NSLog(@"成功");
-            [self displayHUDTitle:nil message:@"抢单成功!"];
+            [self displayHUDTitle:nil message:@"抢单成功，等待系统确认!"];
         } else if ([result[@"OrdState"] integerValue] == 0){
             [self displayHUDTitle:nil message:@"抢单失败!"];
         } else if ([result[@"OrdState"] integerValue] == 2){

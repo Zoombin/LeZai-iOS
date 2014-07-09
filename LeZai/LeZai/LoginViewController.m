@@ -64,7 +64,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
-        [[LZService shared] signOut];
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [delegate changeRole];
     }

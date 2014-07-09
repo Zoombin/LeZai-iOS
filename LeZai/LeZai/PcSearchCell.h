@@ -13,9 +13,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *startLocationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *endLocationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
-@property (nonatomic, weak) IBOutlet UILabel *beginAndEndLabel;
-@property (nonatomic, weak) IBOutlet UILabel *onWayTimeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *busTimeLabel;
+//@property (nonatomic, weak) IBOutlet UILabel *beginAndEndLabel;
+//@property (nonatomic, weak) IBOutlet UILabel *onWayTimeLabel;
+//@property (nonatomic, weak) IBOutlet UILabel *busTimeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *publisDate;
 
 - (void)updateInfo:(PCObject *)dict;

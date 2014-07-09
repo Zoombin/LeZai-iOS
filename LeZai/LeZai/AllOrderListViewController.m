@@ -30,7 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"所有订单";
+        self.title = @"等待抢单";
          [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"allorder_n"] withFinishedUnselectedImage:[UIImage imageNamed:@"allorder_hl"]];
         [self.tabBarItem setTitle:@""];
         resultInfo = [NSMutableArray array];
@@ -71,7 +71,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
-        [[LZService shared] signOut];
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [delegate changeRole];
     }

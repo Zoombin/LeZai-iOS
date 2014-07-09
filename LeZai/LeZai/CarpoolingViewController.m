@@ -38,17 +38,6 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"切换" style:UIBarButtonItemStyleBordered target:self action:@selector(signOut)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
-//    [_startLocationTextField.layer setCornerRadius:CORNER_RADIUS];
-//    [_startLocationTextField.layer setBorderWidth:BORDER_WIDTH];
-//    [_startLocationTextField.layer setBorderColor:BORDER_COLOR];
-//    
-//    [_endLocationTextField.layer setCornerRadius:CORNER_RADIUS];
-//    [_endLocationTextField.layer setBorderWidth:BORDER_WIDTH];
-//    [_endLocationTextField.layer setBorderColor:BORDER_COLOR];
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStyleBordered target:self action:@selector(search)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
     NSInteger offset = 206;
     [_datePickerView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame) - offset, 320, 206)];
     [self.view addSubview:_datePickerView];
@@ -73,7 +62,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
-        [[LZService shared] signOut];
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [delegate changeRole];
     }
@@ -114,7 +102,7 @@
     return YES;
 }
 
-- (void)search
+- (IBAction)searchButtonClick:(id)sender
 {
     [self hideKeyBoard];
     if ([_startLocationTextField.text length] > 0) {
