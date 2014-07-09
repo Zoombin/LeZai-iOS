@@ -30,10 +30,8 @@
 {
     _startLocationLabel.text = [NSString stringWithFormat:@"%@",obj.beginAreaName];
     _endLocationLabel.text = [NSString stringWithFormat:@"%@",obj.endAreaName];
-    _priceLabel.text = [NSString stringWithFormat:@"%@/kg %@/m³ Min:%@",obj.kgPrice, obj.lmPrice, obj.minPrice];
-//    _beginAndEndLabel.text = [NSString stringWithFormat:@"%@ ~ %@", obj.beginDate, obj.endDate];
-//    _onWayTimeLabel.text = [NSString stringWithFormat:@"%@", obj.onWayTime];
-//    _busTimeLabel.text = [NSString stringWithFormat:@"%@", obj.busTime];
+    
+    _priceLabel.text = [NSString stringWithFormat:@"%@/kg %@/t %@/m³ Min:%@",obj.kgPrice, obj.tPrice,obj.lmPrice, obj.minPrice];
     _publisDate.text = [NSString stringWithFormat:@"%@", obj.pushlishDate];
 }
 

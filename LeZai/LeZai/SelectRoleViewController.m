@@ -44,6 +44,7 @@
 {
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    [APService setTags:[NSSet setWithObject:I_AM_DRIVER] callbackSelector:nil object:nil];
     [[LZService shared] saveRole:I_AM_DRIVER];
     [appdelegate addDirverTabBar];
 }
@@ -52,7 +53,7 @@
 {
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    [APService setTags:[NSSet setWithObject:I_AM_CUSTOMER] alias:nil callbackSelector:nil target:self];
+    [APService setTags:[NSSet setWithObject:I_AM_CUSTOMER] callbackSelector:nil object:nil];
     [[LZService shared] saveRole:I_AM_CUSTOMER];
     [appdelegate addCustomerTabBar];
 }

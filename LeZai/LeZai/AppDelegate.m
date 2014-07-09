@@ -60,7 +60,9 @@
 {
     if ([[LZService shared] userToken]) {
          UINavigationController *allNavigationBar = [[UINavigationController alloc] initWithRootViewController:[AllOrderListViewController new]];
+        
          UINavigationController *ingNavigationBar = [[UINavigationController alloc] initWithRootViewController:[OrderingListViewController new]];
+        
         UINavigationController *dbNavigationBar = [[UINavigationController alloc] initWithRootViewController:[DBViewController new]];
         
         _tabBarController = [[UITabBarController alloc] init];

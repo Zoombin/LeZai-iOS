@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *endAreaName;
 @property (nonatomic, strong) NSString *kgPrice;
 @property (nonatomic, strong) NSString *lmPrice;
+@property (nonatomic, strong) NSString *tPrice;
 @property (nonatomic, strong) NSString *minPrice;
 @property (nonatomic, strong) NSString *beginDate;
 @property (nonatomic, strong) NSString *endDate;

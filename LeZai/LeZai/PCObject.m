@@ -30,6 +30,7 @@
     obj.onWayTime = dict[@"OnWayTime"];
     obj.busTime = dict[@"BusTime"];
     obj.pushlishDate = dict[@"PublisDate"];
+    obj.tPrice = dict[@"TPrice"];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];

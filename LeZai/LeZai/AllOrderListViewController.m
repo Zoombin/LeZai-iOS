@@ -31,6 +31,8 @@
     if (self) {
         // Custom initialization
         self.title = @"等待抢单";
+        
+         [self.tabBarItem setImageInsets:UIEdgeInsetsMake(5, 0.0, -5, 0.0)];
          [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"allorder_n"] withFinishedUnselectedImage:[UIImage imageNamed:@"allorder_hl"]];
         [self.tabBarItem setTitle:@""];
         resultInfo = [NSMutableArray array];

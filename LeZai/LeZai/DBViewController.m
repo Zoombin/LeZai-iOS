@@ -39,6 +39,7 @@
         type = ORDER_PICK;
         resultInfo = [NSMutableArray array];
         
+        [self.tabBarItem setImageInsets:UIEdgeInsetsMake(5, 0.0, -5, 0.0)];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"ordered_n"] withFinishedUnselectedImage:[UIImage imageNamed:@"ordered_hl"]];
         [self.tabBarItem setTitle:@""];
     }
