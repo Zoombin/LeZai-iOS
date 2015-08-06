@@ -1,0 +1,3 @@
+[submodule "Justice/Submodules/MBProgressHUD"]
+        path = Justice/Submodules/MBProgressHUD
+        url = https://github.com/matej/MBProgressHUD.git
